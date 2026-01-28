@@ -1,26 +1,377 @@
 @import "tailwindcss";
 
+/* PP Neue Montreal Font Faces */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/NeueMontreal/PPNeueMontreal-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/NeueMontreal/PPNeueMontreal-Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/NeueMontreal/PPNeueMontreal-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/NeueMontreal/PPNeueMontreal-SemiBolditalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/NeueMontreal/PPNeueMontreal-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Standardized Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #FFFFFF;
+  --text-header: #6b7d6b; /* Darker green for headers (H1, H2) */
+  --text-subheader: #8fa08f; /* Medium green for subheaders (H3, H4) */
+  --text-primary: #a5b39d; /* Current green for body paragraph text */
+  --text-secondary: #b8c4b3; /* Lightest green for secondary/muted text */
+  --text-bold: #6b7d6b; /* Darker green for bold text */
+  --font-sans: 'PP Neue Montreal', system-ui, sans-serif; /* Technical headers */
+  --font-serif: 'Georgia', serif; /* Narrative body */
+  --header-top-spacing: 12rem; /* 48 * 0.25rem = 12rem = 192px */
+  --section-bottom-spacing: 10rem; /* 40 * 0.25rem = 10rem = 160px */
+  --content-max-width: 700px; /* Standard body content width */
+  --grid-max-width: 1200px; /* Wider width for grid layouts */
+  --hero-section-min-height: 60vh; /* Minimum height for hero sections */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Global Layout Rules */
+* {
+  text-align: left;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Paragraphs use serif font */
+p {
+  font-family: var(--font-serif);
+}
+
+/* Container with max-width and horizontal padding */
+.container {
+  max-width: 1200px;
+  padding-left: 15%;
+  padding-right: 15%;
+  margin: 0 auto;
+}
+
+/* Typography Scale - Standardized */
+
+/* H1: Page Titles */
+h1 {
+  font-family: 'PP Neue Montreal';
+  font-size: 4.375rem;
+  font-weight: 100;
+  line-height: 1.1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-header);
+  text-align: left;
+}
+
+/* H2: Major Section Headers */
+h2 {
+  font-family: 'PP Neue Montreal';
+  font-size: 2.5rem;
+  font-weight: 100;
+  line-height: 1.2;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-header);
+}
+
+/* H3: Subsection Headers */
+h3 {
+  font-family: 'PP Neue Montreal';
+  font-size: 1.875rem;
+  font-weight: 100;
+  line-height: 1.3;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-subheader);
+}
+
+/* H4: Minor Headers */
+h4 {
+  font-family: 'PP Neue Montreal';
+  font-size: 1.5625rem;
+  font-weight: 100;
+  line-height: 1.4;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-subheader);
+}
+
+/* H5, H6: Small Headers */
+h5, h6 {
+  font-family: 'PP Neue Montreal';
+  font-size: 1.25rem;
+  font-weight: 100;
+  line-height: 1.4;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-subheader);
+}
+
+/* Bold class uses outlined style */
+.font-bold {
+  font-family: 'PP Neue Montreal';
+  font-weight: 100;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-header);
+}
+
+/* Paragraph Typography */
+p {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+}
+
+/* Body Large: Main narrative paragraphs */
+.body-large {
+  font-size: 1.5rem;
+  line-height: 1.75;
+}
+
+/* Standard body text */
+body {
+  font-size: 1.40625rem;
+  line-height: 1.6;
+}
+
+/* Body Small: Secondary text */
+.body-small {
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Small: Labels and metadata */
+.small {
+  font-family: 'PP Neue Montreal';
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Non-outlined headers (for small headers like footer and subtitles) */
+h2.no-outline {
+  color: var(--text-header);
+  -webkit-text-stroke: none;
+  font-weight: 400;
+}
+
+h3.no-outline,
+h4.no-outline {
+  color: var(--text-subheader);
+  -webkit-text-stroke: none;
+  font-weight: 400;
+}
+
+/* Hero Section - Centered intro sections */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: var(--hero-section-min-height);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    min-height: 70vh;
+    padding: 3rem 0;
+  }
+}
+
+.hero-section > * {
+  width: 100%;
+  max-width: var(--content-max-width);
+  text-align: left;
+}
+
+/* Ensure bold text in inline styles also uses the color */
+*[style*="font-weight: bold"],
+*[style*="fontWeight: 'bold'"],
+*[style*="fontWeight: bold"] {
+  color: var(--text-bold) !important;
+}
+
+/* Body and paragraphs maintain default text color */
+body, p {
+  color: var(--text-primary) !important;
+}
+
+/* Ensure all text elements use appropriate green colors */
+p, span, div, li {
+  color: var(--text-primary) !important;
+}
+
+/* Links with consistent hover/active states */
+a {
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--text-header);
+}
+
+a:active {
+  color: var(--text-header);
+  opacity: 0.8;
+}
+
+/* Buttons with consistent hover/active states */
+button {
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+button:hover {
+  color: var(--text-header);
+}
+
+button:active {
+  color: var(--text-header);
+  opacity: 0.8;
+}
+
+/* Override Tailwind text utilities */
+.text-black {
+  color: var(--text-primary) !important;
+}
+
+/* Utility class for bold text with midnight blue */
+.text-bold-midnight {
+  color: var(--text-bold);
+  font-weight: bold;
+}
+
+/* Ensure all text elements are left-aligned */
+h1, h2, h3, h4, h5, h6, p, div, span, a, li {
+  text-align: left;
+}
+
+/* Footer styling */
+.footer-heading {
+  color: var(--text-header) !important;
+}
+
+.footer-text {
+  color: var(--text-primary) !important;
+}
+
+.footer-link {
+  color: var(--text-primary) !important;
+}
+
+.footer-link:hover {
+  color: var(--text-header) !important;
+}
+
+/* Footer mobile centering override */
+@media (max-width: 767px) {
+  footer .footer-grid,
+  footer .footer-column,
+  footer .footer-heading,
+  footer .footer-text,
+  footer .footer-link {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 768px) {
+  footer .footer-grid,
+  footer .footer-column,
+  footer .footer-heading,
+  footer .footer-text,
+  footer .footer-link {
+    text-align: left !important;
+  }
+}
+
+/* All headings, links, and non-paragraph text use Neue Montreal */
+h1, h2, h3, h4, h5, h6, a, button, span, div, li, label, input, textarea, select {
+  font-family: var(--font-sans);
+}
+
+/* Sonic Identity Ping Animation */
+@keyframes ping-brackets {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+.ping-brackets {
+  animation: ping-brackets 2s ease-in-out infinite;
+}
+
+/* Manifesto Text Component */
+@layer components {
+  .manifesto-text {
+    @apply text-black leading-[1.1] tracking-tighter;
+    max-width: 90%;
+  }
+}
+
+/* Navigation Link Active State */
+.nav-link-active {
+  color: var(--text-header);
+  transform: translateY(-2px);
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 1px;
+}
+
+/* Page Transition for Transmutation Effect */
+@keyframes fade-through-black {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.page-transition {
+  animation: fade-through-black 0.6s ease-out;
 }
