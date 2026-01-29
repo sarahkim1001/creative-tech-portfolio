@@ -69,7 +69,7 @@ export default function Studio() {
   return (
     <div style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
       {/* Hero Section */}
-      <div style={{ marginBottom: '4rem' }}>
+      <div style={{ marginBottom: '4rem', maxWidth: '1400px', marginLeft: 'auto', marginRight: 'auto' }}>
         <h2 style={{ 
           fontFamily: 'var(--font-sans)',
           fontSize: '2rem',
@@ -92,7 +92,7 @@ export default function Studio() {
       </div>
 
       {/* Filter System */}
-      <div style={{ marginBottom: '3rem' }}>
+      <div style={{ marginBottom: '3rem', maxWidth: '1400px', marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
           {categories.map((category) => (
             <button
@@ -115,7 +115,7 @@ export default function Studio() {
       </div>
 
       {/* Projects Grid */}
-      <div>
+      <div style={{ maxWidth: '1400px', marginLeft: 'auto', marginRight: 'auto' }}>
         <div 
           style={{
             display: 'grid',

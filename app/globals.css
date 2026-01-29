@@ -43,7 +43,7 @@
 
 /* Standardized Variables */
 :root {
-  --bg: #FFFFFF;
+  --bg: #ebf0f5;
   --text-header: #666666; /* Light gray for headers (H1, H2) */
   --text-subheader: #666666; /* Light gray for subheaders (H3, H4) */
   --text-primary: #666666; /* Light gray for body paragraph text */
