@@ -9,7 +9,7 @@ export default function About() {
           paddingBottom: '8rem'
         }}
       >
-        <div>
+        <div className="w-full">
           <div className="w-full max-w-[300px] aspect-[3/4] mb-16">
             <img 
               src="/media/img/pfp2.JPG" 
@@ -19,13 +19,14 @@ export default function About() {
           </div>
           <h1 className="mb-2">
           </h1>
-          <h4 className="font-normal mb-6 no-outline">
+          <h4 className="font-normal mb-6 no-outline" style={{ maxWidth: 'fit-content' }}>
             Sarah S. Kim <br></br>  Born in 2002 Silicon Valley, CA
           </h4>
           <p 
             className="italic"
             style={{ 
-              opacity: 0.8
+              opacity: 0.8,
+              maxWidth: 'fit-content'
             }}
           >
             "Cyborgs are not reverent; they do not re-member the cosmos. They are wary of holism, but needy for connection- they seem to have a natural feel for united front politics, but without the vanguard party. The main trouble with cyborgs, of course, is that they are the illegitimate offspring of militarism and patriarchal capitalism, not to mention state socialism. But illegitimate offspring are often exceedingly unfaithful to their origins."
@@ -33,7 +34,8 @@ export default function About() {
           <p 
             className="mt-4"
             style={{ 
-              fontFamily: 'var(--font-serif)',
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 400,
               fontSize: '1.25rem',
               lineHeight: '1.75',
               opacity: 0.7
@@ -44,91 +46,95 @@ export default function About() {
         </div>
       </section>
 
-      {/* Narrative Sections - Centered Narrow Column */}
+      {/* Narrative Sections */}
       <section className="pb-40">
-        <div className="flex justify-center">
-          <div 
-            className="w-full space-y-20 text-left"
-            style={{ maxWidth: 'var(--content-max-width)' }}
-          >
-            {/* The Vision */}
+        <div className="w-full space-y-20 text-left">
+            {/* The Practice */}
             <div>
               <h2 
                 className="mb-8 font-bold"
               >
-                The Vision
+                Community
               </h2>
               <p 
                 className="mb-6 body-large"
               >
-                Palo Alto is a place where technology isn't just an industry—it's the air we breathe. Growing up here, I've watched global systems move into our most private spaces, blurring the line between our digital and physical lives. My work explores this shared atmosphere, looking at how we build our collective memory and our identities when our most intimate moments are woven into these systems.
+                For Sarah, being a creative technologist is about using digital media to bring people together. She views this as an art form that mixes technical production and a search for new forms of connection, using experimental configurations of sound, light, and space—whether digital, physical, or the "in-between." She finds purpose in connecting with people through new spaces and experiences.
               </p>
-            </div>
-
-            {/* Creative Practice */}
-            <div>
-              <h2 
-                className="mb-8 font-bold"
-              >
-                Creative Practice
-              </h2>
               <p 
                 className="mb-6 body-large"
               >
-                My creative practice is a process of sensory excavation, but more importantly, it is an act of creating with. I don't see technology as a standalone tool, but as a medium for communication—a way to create alongside people, systems, and the infrastructure itself. Whether I am designing an installation or curating a gallery, my goal is to build a clearing where we can stop and create together. It's about uncovering the stories that get lost in the rush and finding new ways to coexist through the tools we share.
+                Sarah sees technology as a tool for reconnection. Whether she is installing AV systems for live performances, working in a gallery, or building immersive projects, her focus remains on creating experiences that ground us in our humanity. Through the design of intuitive interfaces, she transforms digital media into a space for questioning, discovery, and collective wonder. For her, growing with communities and collaborating on projects is the foundational process.
               </p>
             </div>
 
-            {/* The Outcome: Experiential Environments */}
+            {/* Principles */}
             <div>
               <h2 
                 className="mb-8 font-bold"
               >
-                The Outcome: Experiential Environments
+                Being
               </h2>
-              <p 
-                className="body-large"
-              >
-                As a creator, I translate these dialogues into spatial sound, digital art, and gallery curation. I turn invisible digital patterns into tactile experiences, transforming spaces into sites of resonance. Through practices like Deep Listening, I try to quiet the noise of a tech-heavy world to create a sense of shared presence. These environments are built to help us navigate a mediated world as a connected, resilient community—less as isolated users and more as active participants in a shared story.
-              </p>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="mb-3 font-bold">
+                    Actively Curious
+                  </h3>
+                  <p className="body-large">
+                    In every project there is the opportunity to learn how people relate with art, the world, and each other. This shared curiosity is the foundation of her practice.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="mb-3 font-bold">
+                    Grounded & Practical
+                  </h3>
+                  <p className="body-large">
+                    Sarah sees beauty in the technical; for her, aligning images, text, and colors, positioning a projector, or balancing sound signals is a very special kind of meditation.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="mb-3 font-bold">
+                    Human
+                  </h3>
+                  <p className="body-large">
+                    Waking up with the world. 
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
         </div>
       </section>
 
       {/* Industrial Biography - Education & Technical Stack */}
       <section className="pt-40 pb-40">
-        <div className="flex justify-center">
-          <div 
-            className="w-full text-left"
-            style={{ maxWidth: 'var(--grid-max-width)' }}
-          >
+        <div className="w-full text-left">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
               {/* Education & Background */}
               <div>
                 <h3 
-                  className="mb-4 uppercase tracking-widest small no-outline"
+                  className="mb-4 tracking-widest small no-outline"
                 >
                   Education & Background
                 </h3>
                 <div 
                   style={{ 
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: '1.171875rem',
+                    fontFamily: 'var(--font-sans)',
+              fontWeight: 400,
+                    fontSize: '1.75rem',
                     lineHeight: '1.6',
                     opacity: '0.7'
                   }}
                 >
-                  <p>NYU IDM (2025)</p>
-                  <p>Minor in Media, Culture, and Communication</p>
-                  <p>Global Research Residency in Florence (Speculative Materiality focus)</p>
+                  <p>NYU IDM (2025): B.S. in Integrated Design and Media</p>
+                  <p>Minor: Media, Culture, and Communication</p>
+                  <p>Residency: Global Research Residency in Florence (Speculative Materiality focus)</p>
                 </div>
               </div>
 
               {/* Technical Stack */}
               <div>
                 <h3 
-                  className="mb-4 uppercase tracking-widest small no-outline"
+                  className="mb-4 tracking-widest small no-outline"
                 >
                   Technical Stack
                 </h3>
@@ -143,57 +149,53 @@ export default function About() {
                 >
                   <div>
                     <p 
-                      className="mb-2 uppercase tracking-widest"
+                      className="mb-2 tracking-widest"
                       style={{ 
                         fontFamily: 'var(--font-sans)',
                         fontSize: '1.125rem',
-                        fontWeight: 'bold',
+                        fontWeight: 400,
                         color: 'var(--text-bold)',
                         opacity: '0.8'
                       }}
                     >
                       Systemic Craft
                     </p>
-                    <p>Figma, Adobe Creative Suite, DaVanci Resolve, Ableton Live, REAPER, Arduino, MIDI, Max/MSP, Isadora, Github, HTML/CSS/JS, Cursor (AI-assisted development), React, TypeScript, Next.js, Tailwind CSS, Python</p>
+                    <p>Figma, Adobe Creative Suite, DaVinci Resolve, Ableton Live, REAPER, Arduino, MIDI, Max/MSP, Isadora, GitHub, HTML/CSS/JS, Cursor, React, TypeScript, Next.js, Tailwind CSS, Python.</p>
                   </div>
                   <div>
                     <p 
-                      className="mb-2 uppercase tracking-widest"
+                      className="mb-2 tracking-widest"
                       style={{ 
                         fontFamily: 'var(--font-sans)',
                         fontSize: '1.125rem',
-                        fontWeight: 'bold',
+                        fontWeight: 400,
                         color: 'var(--text-bold)',
                         opacity: '0.8'
                       }}
                     >
                       Sensory Craft
                     </p>
-                    <p>Projection & Installation Design, Interaction Design, User Experience Design, Immersive Spatial Audio, Digital Signal Processing, Cinematography, Video Production, Documentary Photography, Experimental Cello</p>
+                    <p>Projection & Installation Design, Interaction Design, User Experience Design, Immersive Spatial Audio, Digital Signal Processing, Cinematography, Video Production, Documentary Photography, Experimental Cello.</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
       {/* Connect Section */}
       <section className="pt-32 pb-32">
-        <div className="flex justify-center">
-          <div 
-            className="w-full text-left"
-            style={{ maxWidth: 'var(--content-max-width)' }}
-          >
+        <div className="w-full text-left">
             <h3 
-              className="mb-4 uppercase tracking-widest small no-outline"
+              className="mb-4 tracking-widest small no-outline"
             >
-              Connect (Direct Inquiry)
+              Connect
             </h3>
             <div 
               className="space-y-2"
               style={{ 
-                fontFamily: 'var(--font-serif)',
+                fontFamily: 'var(--font-sans)',
+              fontWeight: 400,
                 fontSize: '1.25rem',
                 lineHeight: '1.75'
               }}
@@ -217,7 +219,6 @@ export default function About() {
                 <a href="https://instagram.com/s4rahkim" target="_blank" rel="noopener noreferrer" className="underline">Instagram (@s4rahkim)</a>
               </p>
             </div>
-          </div>
         </div>
       </section>
     </div>

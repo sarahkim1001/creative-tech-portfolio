@@ -51,9 +51,8 @@ export default function StudioCTA() {
               style={{
                 fontFamily: 'PP Neue Montreal',
                 fontSize: 'clamp(2.5rem, 6.25vw, 5rem)',
-                fontWeight: 100,
-                color: 'transparent',
-                WebkitTextStroke: '1px var(--text-bold)',
+                fontWeight: 400,
+                color: 'var(--text-bold)',
                 letterSpacing: '0.1em',
                 transition: 'opacity 0.6s ease-out',
                 opacity: isHovered ? 0.9 : 1,

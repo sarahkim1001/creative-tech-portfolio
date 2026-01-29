@@ -9,45 +9,31 @@ export default function Glossary() {
     >
       {/* Hero Section */}
       <section className="hero-section">
-        <div>
-          <h1>
-            <span 
-              style={{ 
-                display: 'block',
-                fontFamily: 'var(--font-serif)',
-                fontSize: '1.875rem',
-                fontWeight: 'normal',
-                marginTop: '0.5rem'
-              }}
-            >
-              An Evolving Lexicon for Sym-poetic Coexistence
-            </span>
-        </h1>
-          <p className="mt-8">
-            This index functions as a shared vocabulary for navigating the entanglement of human relations within digital infrastructures. By situating my practice at the intersection of systemic awareness and sensory inquiry, these terms serve as conceptual lenses for reweaving our connection to one another and the earth. This is a commitment to Relational Design—an archive of methodologies intended to shift our engagement with technology from extractive consumption to intentional, communal becoming-with.
-          </p>
+        <div className="w-full">
+          <h2 className="mb-6 font-bold">
+            Words for Sym-poetic Coexistence
+          </h2>
+            <p className="mt-8 body-large">
+              Sharing vocabulary for intentional, communal becoming-with within physical and digital infrastructures and between the human and non-human.
+            </p>
         </div>
       </section>
 
       {/* Glossary Terms */}
-      <div className="flex justify-center">
-        <div 
-          className="w-full"
-          style={{ maxWidth: 'var(--content-max-width)' }}
-        >
-          <div className="space-y-24 text-left">
-        {/* Section I: Ontological Foundations */}
-        <div className="space-y-24">
+      <section>
+        <div className="w-full space-y-60 text-left">
+          {/* Section I: Ontological Foundations */}
+          <div className="space-y-60">
           <h2 
-            className="mb-8"
+            className="mb-32"
           >
-            I. Ontological Foundations: Entangled Consciousness
+            I. Entangled Consciousness
           </h2>
 
           {/* Sym-poiesis (Making-With) */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Sym-poiesis (Making-With)
             </h3>
@@ -64,7 +50,7 @@ export default function Glossary() {
           {/* Technogenesis */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Technogenesis
             </h3>
@@ -81,7 +67,7 @@ export default function Glossary() {
           {/* Hauntology */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Hauntology
             </h3>
@@ -98,7 +84,7 @@ export default function Glossary() {
           {/* Technological Cognition */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Technological Cognition
             </h3>
@@ -115,7 +101,7 @@ export default function Glossary() {
           {/* Information Spacetime */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Information Spacetime
             </h3>
@@ -128,20 +114,20 @@ export default function Glossary() {
               The collapse of geographical distance through network topologies. It is the psychic and spatial reality where global logistics and personal domesticity occupy the same immediate temporal moment, creating a state of perpetual atmospheric entanglement.
             </p>
           </section>
-        </div>
+          </div>
 
-        {/* Section II: Methodological Shifts */}
-        <div className="space-y-24">
+          {/* Section II: Methodological Shifts */}
+          <div className="space-y-60">
           <h2 
-            className="mb-8"
+            className="mb-32"
           >
-            II. Methodological Shifts: Tentacular Ways of Relating
+            II. Tentacular Relations
           </h2>
 
           {/* Sensory Excavation */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Sensory Excavation
             </h3>
@@ -158,7 +144,7 @@ export default function Glossary() {
           {/* Atmospheric Forensics */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Atmospheric Forensics
             </h3>
@@ -175,7 +161,7 @@ export default function Glossary() {
           {/* Transmutation */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Transmutation
             </h3>
@@ -192,7 +178,7 @@ export default function Glossary() {
           {/* Socio-Technical Reweaving */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Socio-Technical Reweaving
             </h3>
@@ -209,7 +195,7 @@ export default function Glossary() {
           {/* Silicon-Domesticity */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Silicon-Domesticity
             </h3>
@@ -226,7 +212,7 @@ export default function Glossary() {
           {/* The Global-Local Loop */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               The Global-Local Loop
             </h3>
@@ -243,7 +229,7 @@ export default function Glossary() {
           {/* Post-Digital Archival Time */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Post-Digital Archival Time
             </h3>
@@ -260,7 +246,7 @@ export default function Glossary() {
           {/* Post-Industrial Sensory Excavation */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Post-Industrial Sensory Excavation
             </h3>
@@ -277,7 +263,7 @@ export default function Glossary() {
           {/* Obsolescence-Presence Continuum */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Obsolescence-Presence Continuum
             </h3>
@@ -290,20 +276,20 @@ export default function Glossary() {
               Anchors work at the threshold where "dead" technology (e-waste) and "living" memory (childhood artifacts) coexist in a single chronological layer.
             </p>
           </section>
-        </div>
+          </div>
 
-        {/* Section III: Systemic Infrastructures */}
-        <div className="space-y-24">
+          {/* Section III: Systemic Infrastructures */}
+          <div className="space-y-60">
           <h2 
-            className="mb-8"
+            className="mb-32"
           >
-            III. Systemic Infrastructures: Symbiotic Awareness
+            III. Symbiotic Awareness
           </h2>
 
           {/* Signal-to-Noise Ratio */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Relational Signal-to-Noise Ratio
             </h3>
@@ -320,7 +306,7 @@ export default function Glossary() {
           {/* Agentic Feedback */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Agentic Feedback
             </h3>
@@ -337,7 +323,7 @@ export default function Glossary() {
           {/* Component Architecture */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Component Architecture
             </h3>
@@ -354,7 +340,7 @@ export default function Glossary() {
           {/* Environmental Coexistence */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Environmental Coexistence
             </h3>
@@ -371,7 +357,7 @@ export default function Glossary() {
           {/* The Culture of Cleanse */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               The Culture of Cleanse
             </h3>
@@ -388,7 +374,7 @@ export default function Glossary() {
           {/* Interface Frictionlessness */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Interface Frictionlessness
             </h3>
@@ -405,7 +391,7 @@ export default function Glossary() {
           {/* Algorithmic Dysphoria */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Algorithmic Dysphoria
             </h3>
@@ -422,7 +408,7 @@ export default function Glossary() {
           {/* Somatic Desync */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Somatic Desync
             </h3>
@@ -439,7 +425,7 @@ export default function Glossary() {
           {/* Algorithmic Morality */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Algorithmic Morality
             </h3>
@@ -456,7 +442,7 @@ export default function Glossary() {
           {/* Digital Eugenics of Attention */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Digital Eugenics of Attention
             </h3>
@@ -473,7 +459,7 @@ export default function Glossary() {
           {/* Structural Kinship */}
           <section>
             <h3 
-              className="mb-6"
+              className="mb-10"
             >
               Structural Kinship
             </h3>
@@ -486,10 +472,9 @@ export default function Glossary() {
               Replacing "social networks" with a framework that acknowledges the heavy, industrial, and often extractive relations required to sustain digital "closeness."
             </p>
           </section>
-        </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

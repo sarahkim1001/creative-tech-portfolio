@@ -13,36 +13,46 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="hidden md:flex w-full px-[calc(15%+4rem)] py-6 items-center justify-between">
+    <nav style={{ 
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '2rem',
+      maxWidth: '1400px',
+      margin: '0 auto',
+      width: '100%'
+    }}>
       <Link 
         href="/" 
-        style={{ fontFamily: 'var(--font-sans)', fontWeight: 'bold', color: 'var(--text-header)' }}
-        className="text-lg transition-colors duration-200 hover:opacity-80"
+        style={{ 
+          fontFamily: 'var(--font-sans)', 
+          fontWeight: 400, 
+          color: 'var(--text-primary)',
+          fontSize: '1.25rem',
+          textDecoration: 'none'
+        }}
       >
         Sarah S. Kim
       </Link>
-      <div 
-        className="flex gap-8 lowercase"
-        style={{ fontFamily: 'var(--font-sans)' }}
-      >
-        {navLinks.map((link) => {
-          const isActive = pathname === link.href;
-          return (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`transition-all duration-300 ease-in-out ${
-                isActive ? 'nav-link-active' : ''
-              }`}
-              style={{ 
-                fontFamily: 'var(--font-sans)',
-                color: isActive ? 'var(--text-header)' : 'var(--text-primary)'
-              }}
-            >
-              {link.label}
-            </Link>
-          );
-        })}
+      <div style={{ 
+        display: 'flex',
+        gap: '2rem',
+        fontFamily: 'var(--font-sans)',
+        fontSize: '1rem'
+      }}>
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            style={{ 
+              fontFamily: 'var(--font-sans)',
+              color: 'var(--text-primary)',
+              textDecoration: 'none'
+            }}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
     </nav>
   );

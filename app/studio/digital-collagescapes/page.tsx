@@ -3,13 +3,13 @@
 export default function DigitalCollagescapes() {
   return (
     <div className="min-h-screen">
-      {/* Hero Image - Full Width */}
-      <section className="w-full" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
-        <div className="w-full aspect-video bg-gray-200 border-b border-gray-400 overflow-hidden">
+      {/* Hero Image - Full Width with 1rem spacing */}
+      <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
+        <div style={{ marginLeft: 'calc(-15% - 4rem)', marginRight: 'calc(-15% - 4rem)', padding: '0 1rem', aspectRatio: '16/9', overflow: 'hidden' }}>
           <img 
             src="/media/img/cleansegirl.png" 
-            alt="Culture of Cleanse - Wide Shot"
-            className="w-full h-full object-cover"
+            alt="The Sink - Wide Shot"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             onError={(e) => {
               // Fallback to placeholder if image doesn't exist
               const target = e.target as HTMLImageElement;
@@ -30,13 +30,9 @@ export default function DigitalCollagescapes() {
           paddingTop: 'var(--header-top-spacing)'
         }}
       >
-        <div className="flex justify-center">
-          <div 
-            className="w-full text-left"
-            style={{ maxWidth: 'var(--content-max-width)' }}
-          >
+        <div>
             <h1 className="mb-4">
-              Culture of Cleanse
+              The Sink: Systemic Excavations
             </h1>
             <p 
               className="body-small"
@@ -45,82 +41,103 @@ export default function DigitalCollagescapes() {
                 opacity: 0.7
               }}
             >
-              2026
+              2026 | Multimedia Series
             </p>
-          </div>
         </div>
       </section>
 
       {/* Description & Content Section */}
       <section className="pb-20">
-        <div className="flex justify-center">
-          <div 
-            className="w-full space-y-16"
-            style={{ maxWidth: 'var(--content-max-width)' }}
-          >
-            {/* Background & Context */}
+        <div className="w-full space-y-16">
+            {/* Project Overview */}
             <div>
               <h2 className="mb-6 font-bold">
-                Background & Context
+                Project Overview
               </h2>
+              <p className="mb-6 body-large">
+                This series functions as a structural analysis of filtration—the process by which biological life is translated into standardized data. Using the domestic sink as a primary site of inquiry, the work investigates the historical lineage of standardized domesticity and the infrastructures designed to manage human behavior.
+              </p>
               <p className="body-large">
-                This installment functions as a somatic excavation of the "cleanse" as a survival strategy—an inquiry born from the sterilized environments from the heart of Silicon Valley, California. It investigates the ideological blueprint of Standardized Domesticity that governed my upbringing, where rituals of hygiene were inextricably linked to the mandates of assimilation. This work situates the home not as a private refuge, but as a site of biopolitical regulation, where the domestic sink and the digital interface both serve as tools to filter out the "un-sanitized" complexities of biological life.
+                The project treats the collage as a technical "sink," a terminal point where historical blueprints, digital interfaces, and biological residues are compressed into a single, flattened plane.
               </p>
             </div>
 
-            {/* About the Work */}
+            {/* Methodology: Information Layering */}
             <div>
               <h2 className="mb-6 font-bold">
-                About the Work
+                Methodology: Information Layering
               </h2>
-              <p className="body-large">
-                Through a methodology of faded layering, the work deciphers the haunting overlaps between colonial hygiene and the contemporary "utopia" of the digital realm. By deconstructing the technogenetic forces that shape our daily routines, these collages reveal how algorithmic governance attempts to automate instinctual behaviors and standardize communal life. The project utilizes sensory excavation to surface the "hidden histories" of repression and the somatic costs of optimization. Ultimately, Culture of Cleanse seeks to produce situated knowledges that reclaim the visceral texture and weight of an un-sanitized existence against the computational indifference of the modern age.
+              <p className="mb-6 body-large">
+                The work employs a methodology of data degradation. By layering technical schematics with organic textures, the collages track the tension between the sterile precision of a data point and the viscerality of living experience.
               </p>
-            </div>
-
-            {/* Theoretical Anchors */}
-            <div>
-              <h2 className="mb-6 font-bold">
-                Theoretical Anchors
-              </h2>
               <div className="space-y-8">
                 <div>
                   <h3 className="mb-3 font-bold">
-                    Digital Eugenics
+                    Filtration & Objectification
                   </h3>
                   <p className="body-large">
-                    The framework used to understand how Silicon Valley design cultures favor ideals of efficiency and progress that are actualized through the management of the human body.
+                    The imagery deciphers how modern interfaces—both physical (plumbing) and digital (algorithms)—function as sieves. These systems are designed to isolate "value" while discarding the complexities of instinct and memory.
                   </p>
                 </div>
                 <div>
                   <h3 className="mb-3 font-bold">
-                    Atonic Worlds
+                    Systems of Measurement
                   </h3>
                   <p className="body-large">
-                    The concept of "smart" futures that are designed to be homogeneous and sedate, effectively suppressing significant change or biological nuance.
+                    The project traces the lineage of tools used to quantify the body. From colonial hygiene mandates to contemporary smart-home sensors, the work examines how these frameworks attempt to "calibrate" the human experience.
                   </p>
                 </div>
                 <div>
                   <h3 className="mb-3 font-bold">
-                    Mnemonic Persistence
+                    Mnemonic Residue
                   </h3>
                   <p className="body-large">
-                    The act of using art to "tense" an automated world, bringing back the "plant" of communal memory into a sterile, digital landscape.
+                    By deconstructing these technogenetic forces, the series surfaces what the system cannot fully process: the "clog" or the "stain." These are the historical and somatic costs of optimization that resist being filtered away.
                   </p>
                 </div>
               </div>
             </div>
-          </div>
+
+            {/* Structural Themes */}
+            <div>
+              <h2 className="mb-6 font-bold">
+                Structural Themes
+              </h2>
+              <div className="space-y-8">
+                <div>
+                  <h3 className="mb-3 font-bold">
+                    The Digital Sink
+                  </h3>
+                  <p className="mb-6 body-large">
+                    Investigating the points where information pools and loses its original weight, becoming a standardized unit of measurement.
+                  </p>
+                  <div className="space-y-6 ml-6">
+                    <div>
+                      <h4 className="mb-2 font-bold">
+                        Infrastructural Inheritance
+                      </h4>
+                      <p className="body-large">
+                        Noticing a pattern between industrial fluid management and modern data architecture. The logic of 19th-century civil engineering—containment, flow, and the terminal "sink"—has been repurposed to build the invisible pipes of the digital network.
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="mb-2 font-bold">
+                        The Logic of the Sieve
+                      </h4>
+                      <p className="body-large">
+                        Noticing the "cleanse" as a process of active filtration. This observes how the sink functions as a selective threshold for both biological and social characteristics. It is an inquiry into the lineage of systemic sorting—where the interface acts as a filter to isolate "sanitized" or "optimized" traits while draining away the complexities that don't fit the mesh.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </section>
 
       {/* Project Gallery */}
-      <section className="pb-40">
-        <div className="flex justify-center">
-          <div 
-            className="w-full"
-            style={{ maxWidth: 'var(--content-max-width)' }}
-          >
+      <section className="pb-40" style={{ display: 'none' }}>
+        <div>
             <div className="space-y-16">
               {/* Gallery Item 1 */}
               <div>
@@ -135,7 +152,8 @@ export default function DigitalCollagescapes() {
                 <p 
                   className="body-small italic"
                   style={{ 
-                    fontFamily: 'var(--font-serif)',
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 400,
                     opacity: 0.7
                   }}
                 >
@@ -156,7 +174,8 @@ export default function DigitalCollagescapes() {
                 <p 
                   className="body-small italic"
                   style={{ 
-                    fontFamily: 'var(--font-serif)',
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 400,
                     opacity: 0.7
                   }}
                 >
@@ -177,7 +196,8 @@ export default function DigitalCollagescapes() {
                 <p 
                   className="body-small italic"
                   style={{ 
-                    fontFamily: 'var(--font-serif)',
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 400,
                     opacity: 0.7
                   }}
                 >
@@ -185,7 +205,6 @@ export default function DigitalCollagescapes() {
                 </p>
               </div>
             </div>
-          </div>
         </div>
       </section>
     </div>

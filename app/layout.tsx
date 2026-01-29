@@ -25,7 +25,7 @@ export default function RootLayout({
           <Navigation />
 
           {/* Main Content */}
-          <main className="flex-1 px-[calc(15%+4rem)]">
+          <main className="flex-1" style={{ padding: '0 2rem', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
             {children}
           </main>
 

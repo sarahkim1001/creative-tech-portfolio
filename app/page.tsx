@@ -1,54 +1,67 @@
-'use client';
+import Link from 'next/link';
+
+const projects = [
+  {
+    title: 'The Sink',
+    href: '/studio/digital-collagescapes',
+    thumbnail: '/media/img/cleansegirl.png'
+  },
+  {
+    title: 'The Feeding Plate',
+    href: '/studio/the-feeding-plate',
+    thumbnail: '/media/gif/plate.gif'
+  },
+  {
+    title: 'Seventh Sense',
+    href: '/studio/seventh-sense',
+    thumbnail: '/media/img/seventh-sense-landing.jpg'
+  },
+  {
+    title: 'Ouroboros',
+    href: '/studio/ouroboros',
+    thumbnail: '/media/gif/within.gif'
+  }
+];
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative bg-white">
-      {/* The Manifesto Staircase - Centered Intro */}
-      <div 
-        className="flex justify-center"
-        style={{ 
-          paddingTop: 'calc(var(--header-top-spacing) + 1rem)',
-          paddingBottom: '24rem'
-        }}
-      >
-        <div className="w-full text-left">
-          <div 
-            style={{ 
-              fontFamily: "'Garamond', 'Apple Garamond', 'EB Garamond', 'Times New Roman', serif",
-              fontSize: 'clamp(2.8125rem, 5.625vw, 6.5625rem)',
-              lineHeight: '1.1',
-              fontStyle: 'italic',
-              fontWeight: 100,
-              color: '#a5b39d'
-            }}
-          >
-       All Together Here and Now
-          </div>
-        </div>
+    <div style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '2rem',
+        maxWidth: '1200px',
+        margin: '0 auto'
+      }}>
+        {projects.map((project) => (
+          <Link key={project.href} href={project.href}>
+            <div style={{ cursor: 'pointer' }}>
+              <div style={{ 
+                width: '100%', 
+                aspectRatio: '1/1',
+                backgroundColor: '#f5f5f5',
+                marginBottom: '1rem',
+                overflow: 'hidden'
+              }}>
+                <img 
+                  src={project.thumbnail} 
+                  alt={project.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              </div>
+              <h3 style={{ 
+                fontFamily: 'var(--font-sans)',
+                fontSize: '1.5rem',
+                fontWeight: 400,
+                color: 'var(--text-primary)',
+                margin: 0
+              }}>
+                {project.title}
+              </h3>
+            </div>
+          </Link>
+        ))}
       </div>
-
-      {/* Visual Artifact Section */}
-      <section className="flex justify-center" style={{ marginTop: '15vh', marginBottom: '15vh' }}>
-        <div className="w-full" style={{ maxWidth: '90vw' }}>
-          <img 
-            src="/media/img/she.png" 
-            alt="Visual Artifact"
-            className="w-full h-auto"
-            style={{ 
-              objectFit: 'contain',
-              maxHeight: '80vh'
-            }}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.display = 'none';
-              const parent = target.parentElement;
-              if (parent) {
-                parent.innerHTML = '<span class="text-gray-500" style="font-family: var(--font-sans); display: flex; align-items: center; justify-content: center; width: 100%; padding: 4rem;">[Image: /media/img/she.png]</span>';
-              }
-            }}
-          />
-        </div>
-      </section>
     </div>
   );
 }
