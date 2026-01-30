@@ -15,26 +15,6 @@ export default function DigitalCollagescapes() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Image - Full Width with 1rem spacing */}
-      <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
-        <div style={{ marginLeft: 'calc(-15% - 4rem)', marginRight: 'calc(-15% - 4rem)', padding: '0 1rem', aspectRatio: '16/9', overflow: 'hidden' }}>
-              <img 
-                src="/media/img/she.png" 
-                alt="Not Hers - Wide Shot"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                onError={(e) => {
-                  // Fallback to placeholder if image doesn't exist
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    parent.innerHTML = '<span class="text-gray-500" style="font-family: var(--font-sans); display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">[Hero Image: /media/img/she.png]</span>';
-                  }
-                }}
-              />
-        </div>
-      </section>
-
       {/* Header Section */}
       <section 
         style={{ 
@@ -59,12 +39,32 @@ export default function DigitalCollagescapes() {
         </div>
       </section>
 
+      {/* Hero Image - Full Width with 1rem spacing */}
+      <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)', paddingBottom: 'var(--header-top-spacing)' }}>
+        <div style={{ marginLeft: 'calc(-15% - 4rem)', marginRight: 'calc(-15% - 4rem)', padding: '0 1rem', aspectRatio: '16/9', overflow: 'hidden' }}>
+          <img 
+            src="/media/img/she.png" 
+            alt="Not Hers - Wide Shot"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            onError={(e) => {
+              // Fallback to placeholder if image doesn't exist
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              const parent = target.parentElement;
+              if (parent) {
+                parent.innerHTML = '<span class="text-gray-500" style="font-family: var(--font-sans); display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">[Hero Image: /media/img/she.png]</span>';
+              }
+            }}
+          />
+        </div>
+      </section>
+
       {/* Description & Content Section */}
       <section style={{ paddingBottom: '24rem' }}>
         <div className="w-full" style={{ display: 'flex', flexDirection: 'column', gap: '38.4rem' }}>
             {/* Project Overview */}
             <div>
-              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
+              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
                 Project Overview
               </h2>
               <p className="body-large">
@@ -74,7 +74,7 @@ export default function DigitalCollagescapes() {
 
             {/* Methodology: Information Layering */}
             <div>
-              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
+              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
                 Methodology: Information Layering
               </h2>
               <p className="body-large">
@@ -84,7 +84,7 @@ export default function DigitalCollagescapes() {
 
             {/* Structural Themes */}
             <div>
-              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
+              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
                 Structural Themes
               </h2>
               <p className="body-large">
@@ -95,12 +95,12 @@ export default function DigitalCollagescapes() {
       </section>
 
       {/* Project Gallery */}
-      <section className="pb-40" style={{ display: 'none' }}>
+      <section style={{ paddingBottom: '48rem', display: 'none' }}>
         <div>
-            <div className="space-y-16">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '19.2rem' }}>
               {/* Gallery Item 1 */}
               <div>
-                <div className="w-full aspect-video bg-gray-200 border border-gray-400 flex items-center justify-center mb-4">
+                <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: '#f5f5f5', border: '1px solid #999999', overflow: 'hidden', marginBottom: '4.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <span 
                     className="text-gray-500 text-sm"
                     style={{ fontFamily: 'var(--font-sans)' }}
@@ -122,7 +122,7 @@ export default function DigitalCollagescapes() {
 
               {/* Gallery Item 2 */}
               <div>
-                <div className="w-full aspect-video bg-gray-200 border border-gray-400 flex items-center justify-center mb-4">
+                <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: '#f5f5f5', border: '1px solid #999999', overflow: 'hidden', marginBottom: '4.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <span 
                     className="text-gray-500 text-sm"
                     style={{ fontFamily: 'var(--font-sans)' }}
@@ -144,7 +144,7 @@ export default function DigitalCollagescapes() {
 
               {/* Gallery Item 3 */}
               <div>
-                <div className="w-full aspect-video bg-gray-200 border border-gray-400 flex items-center justify-center mb-4">
+                <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: '#f5f5f5', border: '1px solid #999999', overflow: 'hidden', marginBottom: '4.8rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <span 
                     className="text-gray-500 text-sm"
                     style={{ fontFamily: 'var(--font-sans)' }}

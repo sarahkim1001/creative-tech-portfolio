@@ -39,7 +39,7 @@ export default function TheFeedingPlate() {
         </div>
       </section>
       {/* Hero Image - Full Width with 1rem spacing */}
-      <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
+      <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)', paddingBottom: 'var(--header-top-spacing)' }}>
         <div style={{ marginLeft: 'calc(-15% - 4rem)', marginRight: 'calc(-15% - 4rem)', padding: '0 1rem', aspectRatio: '16/9', overflow: 'hidden' }}>
           <img 
             src="/media/gif/plate.gif" 
@@ -58,35 +58,27 @@ export default function TheFeedingPlate() {
         </div>
       </section>
 
-     
-
       {/* Description & Content Section */}
       <section style={{ paddingBottom: '24rem' }}>
+      <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+                
+              </h2>
+              
         <div className="w-full" style={{ display: 'flex', flexDirection: 'column', gap: '38.4rem' }}>
             {/* Main Description */}
             <div>
               <p className="body-large">
-                An inquiry into the transduction of material resonance and the uncomfortable feedback loops found in our relationship with objects. This installation uses a contact microphone and an electromagnetic transducer to establish an analog circuit within a metal plate. By amplifying the plate's own resonant frequencies and reintroducing them into the material, the object "listens" to itself—sustaining a continuous signal that feels both autonomous and trapped. The intervention of domestic utensils to "play" the plate disrupts this equilibrium, questioning the "sticky" tension between human control and the inherent liveliness of inorganic matter.
+                The Feeding is an inquiry into the transduction of material resonance and the uncomfortable feedback loops found in our relationship with objects. This installation uses a contact microphone and an electromagnetic transducer to establish an analog circuit within a metal plate. By amplifying the plate's own resonant frequencies and reintroducing them into the material, the object "listens" to itself—sustaining a continuous signal that feels both autonomous and trapped. The intervention of domestic utensils to "play" the plate disrupts this equilibrium, questioning the "sticky" tension between human control and the inherent liveliness of inorganic matter.
               </p>
             </div>
 
             {/* The Technical Audit */}
             <div>
-              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
-                The Technical Audit
+              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+               
               </h2>
               <p className="body-large">
-                The work examines the intersection of electromagnetic signals and the physical properties of objects:
-              </p>
-            </div>
-
-            {/* Conceptual Framing */}
-            <div>
-              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
-                Conceptual Framing: Vital Materialism & The Non-Human
-              </h2>
-              <p className="body-large">
-                This installation functions as an exercise in co-being, challenging the view that inorganic matter is inert until used by a human agent:
+                The installation examines the intersection of electromagnetic signals and the physical properties of objects. The Feeding is an exercise in co-being, challenging the view that inorganic matter is inert until used by a human agent.
               </p>
             </div>
         </div>

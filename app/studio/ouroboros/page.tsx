@@ -52,12 +52,11 @@ export default function Ouroboros() {
       </section>
 
       {/* Project Gallery */}
-      <section className="pb-40">
-        <div>
-            <div className="space-y-16">
+      <section style={{ paddingTop: 'var(--header-top-spacing)', paddingBottom: '24rem' }}>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '19.2rem' }}>
               {/* Gallery Item 1 */}
               <div>
-                <div className="w-full aspect-video bg-gray-200 border border-gray-400 overflow-hidden mb-4">
+                <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: '#f5f5f5', border: '1px solid #999999', overflow: 'hidden', marginBottom: '4.8rem' }}>
                   <img 
                     src="/media/gif/jerry.gif" 
                     alt="Ouroboros Installation"
@@ -86,7 +85,7 @@ export default function Ouroboros() {
 
               {/* Gallery Item 2 */}
               <div>
-                <div className="w-full aspect-video bg-gray-200 border border-gray-400 overflow-hidden mb-4">
+                <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: '#f5f5f5', border: '1px solid #999999', overflow: 'hidden', marginBottom: '4.8rem' }}>
                   <img 
                     src="/media/gif/projection.gif" 
                     alt="Ouroboros Interior"
@@ -115,7 +114,7 @@ export default function Ouroboros() {
 
               {/* Gallery Item 3 */}
               <div>
-                <div className="w-full aspect-video bg-gray-200 border border-gray-400 overflow-hidden mb-4">
+                <div style={{ width: '100%', aspectRatio: '16/9', backgroundColor: '#f5f5f5', border: '1px solid #999999', overflow: 'hidden', marginBottom: '4.8rem' }}>
                   <img 
                     src="/media/gif/within.gif" 
                     alt="Ouroboros Technical"
@@ -141,17 +140,16 @@ export default function Ouroboros() {
                   The Living Installation
                 </p>
               </div>
-            </div>
         </div>
       </section>
 
       {/* Description & Content Section - Continued */}
-      <section className="pb-20">
-        <div className="w-full space-y-32">
+      <section style={{ paddingBottom: '24rem' }}>
+        <div className="w-full" style={{ display: 'flex', flexDirection: 'column', gap: '38.4rem' }}>
             {/* Conceptual Framework */}
             <div>
-              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
-                Conceptual Framework
+              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+               
               </h2>
               <p className="body-large">
                 The project draws from the existential containment described in Franz Kafka's The Burrow, focusing on the instinct to navigate and find stability within "in-between" spaces. Rather than a traditional gallery experience, Ouroboros functions as a somatic audit, using a change in physical posture—crawling—to break the "autopilot" of daily movement. It is an exploration of how the architectures we inhabit, from the domestic to the industrial, shape our internal consciousness and our ability to connect with ourselves.
@@ -160,54 +158,15 @@ export default function Ouroboros() {
 
             {/* Sonic & Technical Audit */}
             <div>
-              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
-                Sonic & Technical Audit
+              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+                
               </h2>
               <p className="body-large">
                 Using Pauline Oliveros' Deep Listening approach, the system captures everyday ambient urban sounds and uses phase shifting and indeterminacy to transform them into abstract textures.
               </p>
             </div>
 
-            {/* Project Details */}
-            <div>
-              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
-                Project Details
-              </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '7.2rem' }} className="body-large">
-                <p>
-                  <span className="font-bold">Role:</span> Lead Creator & Technologist
-                </p>
-                <p>
-                  <span className="font-bold">Medium:</span> Interactive Somatic Installation
-                </p>
-                <p>
-                  <span className="font-bold">Technical Stack:</span> Max/MSP/Jitter, Spatial Audio, Visual Projection Design, Projection Mapping, Custom Fabrication
-                </p>
-                <p>
-                  <span className="font-bold">Context:</span> NYU Integrated Design & Media (2025)
-                </p>
-              </div>
-            </div>
-        </div>
-      </section>
-
-      {/* Hero Image - Full Width with 1rem spacing */}
-      <section className="w-full pb-40 relative">
-        <div style={{ marginLeft: 'calc(-15% - 4rem)', marginRight: 'calc(-15% - 4rem)', padding: '0 1rem', aspectRatio: '16/9', overflow: 'hidden' }}>
-          <img 
-            src="/media/gif/jerry.gif" 
-            alt="Ouroboros - Wide Shot"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-            onError={(e) => {
-              // Fallback to placeholder if image doesn't exist
-              const target = e.target as HTMLImageElement;
-              target.style.display = 'none';
-              const parent = target.parentElement;
-              if (parent) {
-                parent.innerHTML = '<span class="text-gray-500" style="font-family: var(--font-sans); display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">[Hero Image: Ouroboros Installation]</span>';
-              }
-            }}
-          />
+           
         </div>
       </section>
     </div>

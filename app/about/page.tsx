@@ -106,7 +106,7 @@ export default function About() {
               <p 
                 className="mb-6 body-large"
               >
-                For Sarah, being a creative technologist is about using digital media to bring people together. She views this as an art form that mixes technical production and a search for new forms of connection, using experimental configurations of code, data, sound, light, and space—whether digital, physical, or in-between. She finds purpose in connecting with people through new experiences.
+                For Sarah, being a creative technologist is about using digital media to bring people together. She views this as an art form that mixes technical production and a search for new forms of connection, using experimental configurations of code, data, sound, light, and space—whether digital, physical, or in-between. She finds purpose in connecting with people through new experiences that transform us into something new.
               </p>
               <p 
                 className="mb-6 body-large"

@@ -333,7 +333,7 @@ export default function Home() {
       // Set showButton immediately so React renders it
       setShowButton(true);
       
-      // Add button fade-in to timeline with delay
+      // Add button fade-in to timeline with delay - faster fade in
       tl.call(() => {
         // Use requestAnimationFrame to ensure DOM is updated
         requestAnimationFrame(() => {
@@ -343,28 +343,25 @@ export default function Home() {
               buttonRef.current.style.opacity = '0';
               gsap.to(buttonRef.current, { 
                 opacity: 1, 
-                duration: 2,
-                ease: 'power2.in',
-                onStart: () => console.log('Button fade-in started'),
-                onComplete: () => console.log('Button fade-in complete')
+                duration: 0.8,
+                ease: 'power2.in'
               });
             } else {
-              console.log('Button ref not found - retrying...');
               // Retry after a short delay
               setTimeout(() => {
                 if (buttonRef.current) {
                   buttonRef.current.style.opacity = '0';
                   gsap.to(buttonRef.current, { 
                     opacity: 1, 
-                    duration: 2,
+                    duration: 0.8,
                     ease: 'power2.in'
                   });
                 }
-              }, 200);
+              }, 100);
             }
           });
         });
-      }, [], '>+=0.5'); // Start 0.5s after fade out completes
+      }, [], '>+=0.2'); // Start 0.2s after fade out completes (faster)
     };
 
     container.addEventListener('click', handleClick);

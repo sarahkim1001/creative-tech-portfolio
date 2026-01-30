@@ -51,9 +51,9 @@ export default function Cyborgania() {
             </a>
         </div>
       </section>
-      
+
       {/* Hero Image - Full Width with 1rem spacing */}
-      <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
+      <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)', paddingBottom: 'var(--header-top-spacing)' }}>
         <a 
           href="https://cyborgania.org"
           target="_blank"
@@ -71,14 +71,13 @@ export default function Cyborgania() {
         </a>
       </section>
 
-
       {/* Description & Content Section */}
       <section style={{ paddingBottom: '24rem' }}>
         <div className="w-full" style={{ display: 'flex', flexDirection: 'column', gap: '38.4rem' }}>
             {/* About Cyborgania */}
             <div>
               <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
-                About Cyborgania
+           
               </h2>
               <p className="body-large">
                 Cyborgania is an artist-led design research laboratory exploring the ontological collapse between biological systems and digital architecture. We interrogate the screen not as a barrier, but as a porous, permeable membrane where the enmeshment of the machine and the organism occurs.
@@ -88,7 +87,7 @@ export default function Cyborgania() {
             {/* Technical Framework */}
             <div>
               <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
-                Technical Framework
+           
               </h2>
               <p className="body-large">
                 Technically, the project functions as a "cyborganic" feedback loop. By ingesting real-world geospatial data—including solar positioning, anemometric shifts, and seismic tremors—the digital environment is algorithmically reconfigured in real-time. This creates a responsive "eco-scape" where code acts as a living tissue, fluctuating in direct somatic response to the earth's physical rhythms.
@@ -98,7 +97,7 @@ export default function Cyborgania() {
             {/* Critical Perspective */}
             <div>
               <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
-                Critical Perspective
+            
               </h2>
               <p className="body-large">
                 From a critical perspective, Cyborgania seeks to dismantle the techno-industrial binary that positions the digital as an extraction from the natural. We advocate for a post-humanist design language that prioritizes "softness" and "oneness," utilizing storytelling and communal gatherings to foster a future where technology serves as a celebratory extension of the planet's inherent pulse.
@@ -108,7 +107,7 @@ export default function Cyborgania() {
             {/* Design & Development: 6 Key Pillars */}
             <div>
               <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
-                Design & Development: 6 Key Pillars
+               
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '7.2rem' }}>
                 <p className="body-large">
