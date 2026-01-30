@@ -101,7 +101,7 @@ export default function About() {
               <h2 
                 className="mb-8 font-bold"
               >
-               About the Artist
+               About Sarah
               </h2>
               <p 
                 className="mb-6 body-large"
@@ -125,7 +125,7 @@ export default function About() {
               <div className="space-y-6">
                 <div>
                   <h3 className="mb-3 font-bold">
-                    Words from Sarah
+                    Words from the artist
                   </h3>
                   <p className="body-large">
                     "I love learning about how people relate with art, the world, and each other." <br></br> 
@@ -181,10 +181,11 @@ export default function About() {
                       opacity: '0.7'
                     }}
                   >
-                    <p>Harvestworks, New York, NY</p>
-                    <p style={{ marginLeft: '1.6rem', fontSize: '1.8rem' }}>Production Assistant (April - June 2025)</p>
+                
                     <p style={{ marginTop: '1.6rem' }}>Qualia Contemporary Art, Palo Alto, CA</p>
                     <p style={{ marginLeft: '1.6rem', fontSize: '1.8rem' }}>Gallery Intern (Jan 2026 - current)</p>
+                    <p>Harvestworks, New York, NY</p>
+                    <p style={{ marginLeft: '1.6rem', fontSize: '1.8rem' }}>Production Assistant (April - June 2025)</p>
                   </div>
                 </div>
               </div>

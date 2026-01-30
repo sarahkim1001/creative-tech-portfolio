@@ -43,7 +43,7 @@ const projects: Project[] = [
   },
   {
     id: '3',
-    title: 'The Feeding Plate',
+    title: 'The Feeding',
     category: ['experimental sound', 'interactive media art'],
     thumbnail: '/media/gif/plate.gif',
     description: 'An inquiry into the transduction of material resonance and the uncomfortable feedback loops found in our relationship with objects',

@@ -15,6 +15,29 @@ export default function TheFeedingPlate() {
 
   return (
     <div className="min-h-screen">
+       {/* Header Section */}
+       <section 
+        style={{ 
+          paddingTop: 'var(--header-top-spacing)',
+          paddingBottom: '14.4rem'
+        }}
+      >
+        <div>
+            <h1 style={{ marginBottom: '4.8rem' }}>
+              The Feeding
+            </h1>
+            <p 
+              className="body-small"
+              style={{ 
+                fontFamily: 'var(--font-sans)',
+                opacity: 0.7,
+                marginBottom: '4.8rem'
+              }}
+            >
+              Interactive Sound Installation
+            </p>
+        </div>
+      </section>
       {/* Hero Image - Full Width with 1rem spacing */}
       <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
         <div style={{ marginLeft: 'calc(-15% - 4rem)', marginRight: 'calc(-15% - 4rem)', padding: '0 1rem', aspectRatio: '16/9', overflow: 'hidden' }}>
@@ -35,29 +58,7 @@ export default function TheFeedingPlate() {
         </div>
       </section>
 
-      {/* Header Section */}
-      <section 
-        style={{ 
-          paddingTop: 'var(--header-top-spacing)',
-          paddingBottom: '14.4rem'
-        }}
-      >
-        <div>
-            <h1 style={{ marginBottom: '4.8rem' }}>
-              The Feeding Plate
-            </h1>
-            <p 
-              className="body-small"
-              style={{ 
-                fontFamily: 'var(--font-sans)',
-                opacity: 0.7,
-                marginBottom: '4.8rem'
-              }}
-            >
-              Interactive Sound Installation
-            </p>
-        </div>
-      </section>
+     
 
       {/* Description & Content Section */}
       <section style={{ paddingBottom: '24rem' }}>

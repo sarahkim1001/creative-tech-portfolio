@@ -15,24 +15,6 @@ export default function Cyborgania() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Image - Full Width with 1rem spacing */}
-      <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
-        <a 
-          href="https://cyborgania.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group block relative cursor-pointer"
-          style={{ marginLeft: 'calc(-15% - 4rem)', marginRight: 'calc(-15% - 4rem)', padding: '0 1rem', aspectRatio: '16/9', overflow: 'hidden' }}
-        >
-          <iframe
-            src="https://cyborgania.org"
-            className="w-full h-full pointer-events-none transition-opacity duration-300"
-            style={{ border: 'none', width: '100%', height: '100%' }}
-            title="Cyborgania Website"
-          />
-          <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none" />
-        </a>
-      </section>
 
       {/* Header Section */}
       <section 
@@ -69,6 +51,26 @@ export default function Cyborgania() {
             </a>
         </div>
       </section>
+      
+      {/* Hero Image - Full Width with 1rem spacing */}
+      <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
+        <a 
+          href="https://cyborgania.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block relative cursor-pointer"
+          style={{ marginLeft: 'calc(-15% - 4rem)', marginRight: 'calc(-15% - 4rem)', padding: '0 1rem', aspectRatio: '16/9', overflow: 'hidden' }}
+        >
+          <iframe
+            src="https://cyborgania.org"
+            className="w-full h-full pointer-events-none transition-opacity duration-300"
+            style={{ border: 'none', width: '100%', height: '100%' }}
+            title="Cyborgania Website"
+          />
+          <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none" />
+        </a>
+      </section>
+
 
       {/* Description & Content Section */}
       <section style={{ paddingBottom: '24rem' }}>
