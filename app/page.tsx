@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
+import Link from 'next/link';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,6 +18,8 @@ export default function Home() {
   const pointsRef = useRef<THREE.Points | null>(null);
   const originalPositionsRef = useRef<Float32Array | null>(null);
   const dispersedPositionsRef = useRef<Float32Array | null>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     const gradient = 'linear-gradient(180deg, #e8f2ff 0%, #a99db3 100%)';
@@ -32,16 +35,17 @@ export default function Home() {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const containerWidth = window.innerWidth;
+    const containerHeight = window.innerHeight;
 
     // Scene setup
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
     // Camera setup
-    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, containerWidth / containerHeight, 0.1, 1000);
     camera.position.z = 5;
+    camera.position.y = 0.5; // Move camera up slightly to shift sphere center up
     cameraRef.current = camera;
 
     // Renderer setup
@@ -50,7 +54,7 @@ export default function Home() {
       alpha: true,
       powerPreference: 'high-performance'
     });
-    renderer.setSize(width, height);
+    renderer.setSize(containerWidth, containerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
@@ -101,17 +105,46 @@ export default function Home() {
         // Interpolate between original and dispersed positions
         vec3 currentPos = mix(aOriginalPosition, aDispersedPosition, uDispersion);
         
-        // Multi-octave noise for organic displacement (only when not dispersed) - slowed down
-        float noiseValue = noise(currentPos * 2.0 + uTime * 0.02);
-        noiseValue += noise(currentPos * 4.0 + uTime * 0.03) * 0.5;
-        noiseValue += noise(currentPos * 8.0 + uTime * 0.04) * 0.25;
+        // Multi-octave noise for organic displacement - faster movement
+        float noiseValue = noise(currentPos * 1.5 + uTime * 0.08);
+        noiseValue += noise(currentPos * 3.0 + uTime * 0.12) * 0.7;
+        noiseValue += noise(currentPos * 6.0 + uTime * 0.18) * 0.4;
+        noiseValue += noise(currentPos * 12.0 + uTime * 0.25) * 0.2;
         vNoise = noiseValue;
         
-        // Displace vertices based on noise (less when dispersed)
-        vec3 displaced = currentPos + normal * noiseValue * 0.15 * (1.0 - uDispersion * 0.5);
+        // Add more organic movement with additional noise layers - faster
+        float organicMovement = noise(currentPos * 0.8 + uTime * 0.06) * 0.5;
+        organicMovement += noise(currentPos * 2.2 + uTime * 0.1) * 0.3;
+        organicMovement += noise(currentPos * 5.0 + uTime * 0.15) * 0.2;
         
-        // Breathing effect - subtle expansion/contraction (only when not dispersed)
-        displaced *= (1.0 + uBreath * 0.05 * (1.0 - uDispersion));
+        // Add wave-like flow patterns - faster
+        float waveFlow = sin(currentPos.x * 2.0 + uTime * 0.25) * cos(currentPos.y * 2.0 + uTime * 0.2) * sin(currentPos.z * 1.8 + uTime * 0.3);
+        
+        // Displace vertices based on noise - increased displacement for more organic, irregular shape
+        vec3 displaced = currentPos + normal * (noiseValue * 0.3 + organicMovement * 0.4 + waveFlow * 0.15) * (1.0 - uDispersion * 0.5);
+        
+        // Add rotation-based displacement for more organic, flowy feel
+        vec3 tangent = cross(normal, vec3(0.0, 1.0, 0.0));
+        if (length(tangent) < 0.1) {
+          tangent = cross(normal, vec3(1.0, 0.0, 0.0));
+        }
+        tangent = normalize(tangent);
+        vec3 bitangent = cross(normal, tangent);
+        
+        // More pronounced swirl with varied frequencies for flowy movement - faster
+        float swirl1 = sin(uTime * 0.2 + length(currentPos) * 1.8) * 0.12;
+        float swirl2 = cos(uTime * 0.3 + length(currentPos) * 2.5) * 0.08;
+        float swirl = swirl1 + swirl2;
+        
+        // Add spiral flow pattern - faster
+        float spiral = sin(atan(currentPos.y, currentPos.x) * 3.0 + length(currentPos) * 2.0 + uTime * 0.25) * 0.1;
+        
+        displaced += (tangent * cos(uTime * 0.35 + length(currentPos) * 1.5) + bitangent * sin(uTime * 0.35 + length(currentPos) * 1.5)) * swirl * (1.0 - uDispersion);
+        displaced += normal * spiral * (1.0 - uDispersion);
+        
+        // Breathing effect - more irregular expansion/contraction - faster
+        float breathVariation = noise(currentPos * 0.5 + uTime * 0.12) * 0.3;
+        displaced *= (1.0 + (uBreath * 0.06 + breathVariation * 0.04) * (1.0 - uDispersion));
         
         vec4 mvPosition = modelViewMatrix * vec4(displaced, 1.0);
         gl_Position = projectionMatrix * mvPosition;
@@ -126,6 +159,7 @@ export default function Home() {
           uniform float uTime;
           uniform float uOpacity;
           uniform float uDispersion;
+          uniform float uDesaturation;
           varying vec3 vPosition;
           varying vec3 vNormal;
           varying float vNoise;
@@ -138,7 +172,7 @@ export default function Home() {
             // Color based on noise and position - increased lightness variability
             vec3 color = vec3(0.4, 0.4, 0.4); // Gray base color
             
-            // Increased variation for more lightness variability - slowed down
+            // Increased variation for more lightness variability
             float noiseVariation = vNoise * 0.4; // Increased from 0.1-0.12 to 0.4
             vec3 variation = vec3(
               noiseVariation + sin(vPosition.x * 2.0 + uTime * 0.2) * 0.15,
@@ -149,15 +183,15 @@ export default function Home() {
             // Increased lighting variation
             vec3 lighting = vNormal * 0.2; // Increased from 0.05 to 0.2
             
-            // Add position-based brightness variation - slowed down
+            // Add position-based brightness variation
             float positionBrightness = sin(length(vPosition) * 3.0 + uTime * 0.1) * 0.25;
             
             // Combine all variations
             vec3 finalColor = color + variation + lighting + vec3(positionBrightness);
             
-            // Mix with grayscale to desaturate (less desaturation for more variation)
+            // Mix with grayscale to desaturate - animated from muted to colorful
             float gray = dot(finalColor, vec3(0.299, 0.587, 0.114)); // Luminance
-            color = mix(finalColor, vec3(gray), 0.5); // Reduced from 0.7 to 0.5 for more color variation
+            color = mix(finalColor, vec3(gray), uDesaturation); // Use uniform for animated desaturation
             
             // Fade opacity during dispersion
             float dispersionOpacity = uOpacity * (1.0 - uDispersion * 0.6);
@@ -168,7 +202,7 @@ export default function Home() {
         `;
 
     // Create Icosahedron geometry
-    const geometry = new THREE.IcosahedronGeometry(2, 4); // High subdivision for detail
+    const geometry = new THREE.IcosahedronGeometry(1.2, 4); // Smaller radius for more compact sphere
     
     // Convert to Points geometry
     const pointsGeometry = new THREE.BufferGeometry();
@@ -215,8 +249,9 @@ export default function Home() {
       uniforms: {
         uTime: { value: 0 },
         uBreath: { value: 0 },
-        uOpacity: { value: 0.15 },
-        uDispersion: { value: 0 }
+        uOpacity: { value: 0 }, // Start at 0 for fade-in
+        uDispersion: { value: 0 },
+        uDesaturation: { value: 0.9 } // Start with high desaturation (muted/white tones)
       },
       transparent: true,
       blending: THREE.NormalBlending,
@@ -228,19 +263,35 @@ export default function Home() {
     group.add(points);
     pointsRef.current = points;
 
-    // Mouse interaction - use window coordinates for full page
-    const handleMouseMove = (e: MouseEvent) => {
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      
-      const mouseX = (e.clientX - centerX) / (window.innerWidth / 2);
-      const mouseY = (e.clientY - centerY) / (window.innerHeight / 2);
-      
-      targetRotationRef.current = {
-        x: mouseY * Math.PI * 0.3,
-        y: mouseX * Math.PI * 0.3
-      };
-    };
+    // Fade in the sphere on load - slower animation
+    gsap.to(material.uniforms.uOpacity, {
+      value: 0.15,
+      duration: 4,
+      ease: 'power2.in'
+    });
+
+    // Animate color from muted/white tones to more colorful
+    gsap.to(material.uniforms.uDesaturation, {
+      value: 0.5, // End at current colorful state
+      duration: 6,
+      ease: 'power2.out',
+      delay: 1 // Start after fade-in begins
+    });
+
+        // Mouse interaction - use container coordinates
+        const handleMouseMove = (e: MouseEvent) => {
+          const rect = container.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          const mouseX = (e.clientX - centerX) / (rect.width / 2);
+          const mouseY = (e.clientY - centerY) / (rect.height / 2);
+          
+          targetRotationRef.current = {
+            x: mouseY * Math.PI * 0.3,
+            y: mouseX * Math.PI * 0.3
+          };
+        };
 
     const handleMouseLeave = () => {
       targetRotationRef.current = { x: 0, y: 0 };
@@ -264,12 +315,12 @@ export default function Home() {
         }
       });
       
-          // Dispersion - particles flow away
-          tl.to(material.uniforms.uDispersion, {
-            value: 1,
-            duration: 8,
-            ease: 'power2.out'
-          });
+      // Dispersion - particles flow away
+      tl.to(material.uniforms.uDispersion, {
+        value: 1,
+        duration: 8,
+        ease: 'power2.out'
+      });
       
       // Fade out completely after dispersion
       tl.to(material.uniforms.uOpacity, {
@@ -277,6 +328,43 @@ export default function Home() {
         duration: 1,
         ease: 'power2.out'
       }, '>');
+      
+      // Show button and fade it in after particles fade
+      // Set showButton immediately so React renders it
+      setShowButton(true);
+      
+      // Add button fade-in to timeline with delay
+      tl.call(() => {
+        // Use requestAnimationFrame to ensure DOM is updated
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            if (buttonRef.current) {
+              // Set initial opacity explicitly
+              buttonRef.current.style.opacity = '0';
+              gsap.to(buttonRef.current, { 
+                opacity: 1, 
+                duration: 2,
+                ease: 'power2.in',
+                onStart: () => console.log('Button fade-in started'),
+                onComplete: () => console.log('Button fade-in complete')
+              });
+            } else {
+              console.log('Button ref not found - retrying...');
+              // Retry after a short delay
+              setTimeout(() => {
+                if (buttonRef.current) {
+                  buttonRef.current.style.opacity = '0';
+                  gsap.to(buttonRef.current, { 
+                    opacity: 1, 
+                    duration: 2,
+                    ease: 'power2.in'
+                  });
+                }
+              }, 200);
+            }
+          });
+        });
+      }, [], '>+=0.5'); // Start 0.5s after fade out completes
     };
 
     container.addEventListener('click', handleClick);
@@ -285,7 +373,7 @@ export default function Home() {
     const animate = () => {
       requestAnimationFrame(animate);
       
-      timeRef.current += 0.005; // Slowed down from 0.01 to 0.005
+      timeRef.current += 0.015; // Increased speed for faster flow
       
       // Lerp rotation for smooth movement
       const lerpFactor = 0.05;
@@ -297,8 +385,8 @@ export default function Home() {
         group.rotation.y = currentRotationRef.current.y;
       }
       
-      // Breathing animation - slowed down
-      const breath = Math.sin(timeRef.current * 0.25) * 0.5 + 0.5; // Slowed from 0.5 to 0.25
+      // Breathing animation - faster
+      const breath = Math.sin(timeRef.current * 0.5) * 0.5 + 0.5; // Increased speed for faster flow
       if (material.uniforms) {
         material.uniforms.uTime.value = timeRef.current;
         material.uniforms.uBreath.value = breath;
@@ -310,13 +398,13 @@ export default function Home() {
 
     // Handle resize
     const handleResize = () => {
-      if (!camera || !renderer) return;
-      const newWidth = window.innerWidth;
-      const newHeight = window.innerHeight;
+      if (!container || !camera || !renderer) return;
+      const containerWidth = window.innerWidth;
+      const containerHeight = window.innerHeight;
       
-      camera.aspect = newWidth / newHeight;
+      camera.aspect = containerWidth / containerHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(newWidth, newHeight);
+      renderer.setSize(containerWidth, containerHeight);
     };
     window.addEventListener('resize', handleResize);
 
@@ -340,17 +428,68 @@ export default function Home() {
   }, []);
 
   return (
-    <div 
-      ref={containerRef}
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh',
+      width: '100%',
+      cursor: 'grab',
+      position: 'relative'
+    }}>
+      <div 
+        ref={containerRef}
           style={{ 
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        cursor: 'grab',
-        zIndex: 0
-      }}
-    />
+          position: 'relative',
+          width: '100vw',
+          height: '100vh',
+          zIndex: 0
+        }}
+      />
+      {showButton && (
+        <div
+          ref={buttonRef}
+          style={{ 
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            opacity: 0,
+            zIndex: 10000,
+            cursor: 'pointer',
+            pointerEvents: 'auto',
+            width: 'auto',
+            height: 'auto'
+          }}
+        >
+        <Link 
+            href="/studio"
+          style={{ 
+            fontFamily: 'var(--font-sans)',
+              fontSize: '2.16rem',
+              fontWeight: 400,
+              color: 'var(--text-primary)',
+              textDecoration: 'none',
+              padding: '1.2rem 2.4rem',
+              border: '1px solid var(--text-primary)',
+              borderRadius: '4px',
+              transition: 'opacity 0.3s ease',
+              display: 'block',
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+              backdropFilter: 'blur(10px)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.opacity = '0.7';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.opacity = '1';
+            }}
+          >
+            the studio
+        </Link>
+      </div>
+      )}
+    </div>
   );
 }

@@ -20,9 +20,42 @@ export default function About() {
         className="hero-section"
         style={{ 
           paddingTop: 'calc(var(--header-top-spacing) - 4rem)',
-          paddingBottom: '8rem'
+          paddingBottom: '8rem',
+          position: 'relative'
         }}
       >
+        {/* Contact Info - Top Right */}
+        <div style={{
+          position: 'absolute',
+          top: 'calc(var(--header-top-spacing) - 4rem + 4rem)', // Lower to align with image start
+          right: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.2rem',
+          alignItems: 'flex-end'
+        }}>
+          <a href="mailto:sarahkim1001@gmail.com" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="5" width="18" height="14" rx="2" stroke="#666666" strokeWidth="2" fill="none"/>
+              <path d="M3 7l9 6 9-6" stroke="#666666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/sarah-s-kim-03047020a/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#666666" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12" fill="#666666"/>
+              <circle cx="4" cy="4" r="2" fill="#666666"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com/s4rahkim" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#666666" strokeWidth="2" fill="none"/>
+              <circle cx="12" cy="12" r="4" fill="#666666"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="#666666"/>
+            </svg>
+          </a>
+        </div>
+
         <div className="w-full">
           <div className="w-full max-w-[300px] aspect-[3/4] mb-16" style={{ borderRadius: '50%', overflow: 'hidden' }}>
             <img 
@@ -68,17 +101,17 @@ export default function About() {
               <h2 
                 className="mb-8 font-bold"
               >
-               
+               About the Artist
               </h2>
               <p 
                 className="mb-6 body-large"
               >
-                For Sarah, being a creative technologist is about using digital media to bring people together. She views this as an art form that mixes technical production and a search for new forms of connection, using experimental configurations of sound, light, and space—whether digital, physical, or the "in-between." She finds purpose in connecting with people through new spaces and experiences.
+                For Sarah, being a creative technologist is about using digital media to bring people together. She views this as an art form that mixes technical production and a search for new forms of connection, using experimental configurations of code, data, sound, light, and space—whether digital, physical, or in-between. She finds purpose in connecting with people through new experiences.
               </p>
               <p 
                 className="mb-6 body-large"
               >
-                Sarah sees technology as a tool for reconnection. Whether she is installing AV systems for live performances, working in a gallery, or building immersive projects, her focus remains on creating experiences that ground us in our humanity. Through the design of intuitive interfaces, she transforms digital media into a space for questioning, discovery, and collective wonder. For her, growing with communities and collaborating on projects is the foundational process.
+                Sarah sees technology as a tool for reinterpretation, connection, and growth. Whether she is coding generative interfaces, designing AV systems for installations, or working in a gallery, her focus remains on creating experiences that ground us in reflection of our cultural moment, understanding that today's world is profoundly digital. Through the design of intuitive interfaces, she transforms digital media into a space for questioning, discovery, and collective wonder. Growing with communities through innovative projects is the foundational process.
               </p>
             </div>
 
@@ -92,28 +125,16 @@ export default function About() {
               <div className="space-y-6">
                 <div>
                   <h3 className="mb-3 font-bold">
-                    
+                    Words from Sarah
                   </h3>
                   <p className="body-large">
-                    I love learning about how people relate with art, the world, and each other. <br></br> Creative experimentation is a gift for healing and connecting.<br></br>This curiosity is the foundation of my practice.<br></br>
+                    "I love learning about how people relate with art, the world, and each other." <br></br> 
+                    "Embrace uncertainty, dream big, work hard, and choose kindness."<br></br>
+                    "Creative experimentation is a gift for healing and connecting."<br></br>
+                     "We all together are the foundation of creation"<br></br> 
                   </p>
                 </div>
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    
-                  </h3>
-                  <p className="body-large">
-                   
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-3 font-bold">
-                  
-                  </h3>
-                  <p className="body-large">
-                    Say hello to your neighbors and hug trees every day.
-                  </p>
-                </div>
+                
               </div>
             </div>
         </div>
@@ -142,6 +163,29 @@ export default function About() {
                   <p>NYU IDM (2025): B.S. in Integrated Design and Media</p>
                   <p>Minor: Media, Culture, and Communication</p>
                   <p>Residency: Global Research Residency in Florence (Speculative Materiality focus)</p>
+                </div>
+                
+                {/* Previous Experience */}
+                <div style={{ marginTop: '4rem' }}>
+                  <h3 
+                    className="mb-4 tracking-widest small no-outline"
+                  >
+                    Previous Experience
+                  </h3>
+                  <div 
+                    style={{ 
+                      fontFamily: 'var(--font-sans)',
+                      fontWeight: 400,
+                      fontSize: '2.1rem',
+                      lineHeight: '1.6',
+                      opacity: '0.7'
+                    }}
+                  >
+                    <p>Harvestworks, New York, NY</p>
+                    <p style={{ marginLeft: '1.6rem', fontSize: '1.8rem' }}>Production Assistant (April - June 2025)</p>
+                    <p style={{ marginTop: '1.6rem' }}>Qualia Contemporary Art, Palo Alto, CA</p>
+                    <p style={{ marginLeft: '1.6rem', fontSize: '1.8rem' }}>Gallery Intern (Jan 2026 - current)</p>
+                  </div>
                 </div>
               </div>
 
@@ -197,44 +241,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Connect Section */}
-      <section className="pt-32 pb-32">
-        <div className="w-full text-left">
-            <h3 
-              className="mb-4 tracking-widest small no-outline"
-            >
-              Connect
-            </h3>
-            <div 
-              className="space-y-2"
-              style={{ 
-                fontFamily: 'var(--font-sans)',
-              fontWeight: 400,
-                fontSize: '1.5rem',
-                lineHeight: '1.75'
-              }}
-            >
-              <p>
-                <span className="font-bold" style={{ fontFamily: 'var(--font-sans)' }}>Email:</span>{' '}
-                <a 
-                  href="mailto:sarahkim1001@gmail.com"
-                  className="underline"
-                >
-                  sarahkim1001@gmail.com
-                </a>
-              </p>
-              <p>
-                <span className="font-bold" style={{ fontFamily: 'var(--font-sans)' }}>Location:</span> Based in Palo Alto, CA
-              </p>
-              <p>
-                <span className="font-bold" style={{ fontFamily: 'var(--font-sans)' }}>Presence:</span>{' '}
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="underline">LinkedIn</a>
-                {' '}|{' '}
-                <a href="https://instagram.com/s4rahkim" target="_blank" rel="noopener noreferrer" className="underline">Instagram (@s4rahkim)</a>
-              </p>
-            </div>
-        </div>
-      </section>
     </div>
   );
 }

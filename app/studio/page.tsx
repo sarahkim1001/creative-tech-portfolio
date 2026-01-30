@@ -15,22 +15,24 @@ type Project = {
 
 // Projects
 const projects: Project[] = [
+  
+ // {
+   // id: '1',
+   // title: 'Not Hers',
+//    category: ['digital collage'],
+  //  thumbnail: '/media/img/she.png',
+//    description: 'Investigating the Culture of Cleanse as a pervasive ideological atmospheric inherited from colonial eugenics',
+ //   href: '/studio/digital-collagescapes'
+ // },
   {
-    id: '1',
-    title: 'Not Hers',
-    category: ['digital collage'],
-    thumbnail: '/media/img/she.png',
-    description: 'Investigating the Culture of Cleanse as a pervasive ideological atmospheric inherited from colonial eugenics',
-    href: '/studio/digital-collagescapes'
-  },
-  {
-    id: '3',
-    title: 'The Feeding Plate',
+    id: '2',
+    title: 'Ouroboros',
     category: ['experimental sound', 'interactive media art'],
-    thumbnail: '/media/gif/plate.gif',
-    description: 'An inquiry into the transduction of material resonance and the uncomfortable feedback loops found in our relationship with objects',
-    href: '/studio/the-feeding-plate'
+    thumbnail: '/media/gif/within.gif',
+    description: 'A study of how physical and digitally mediated spaces affect presence through a personal crawl through installation',
+    href: '/studio/ouroboros'
   },
+
   {
     id: '4',
     title: 'Cyborgania',
@@ -40,12 +42,12 @@ const projects: Project[] = [
     href: '/studio/seventh-sense'
   },
   {
-    id: '2',
-    title: 'Ouroboros',
+    id: '3',
+    title: 'The Feeding Plate',
     category: ['experimental sound', 'interactive media art'],
-    thumbnail: '/media/gif/within.gif',
-    description: 'A study of how physical and digitally mediated spaces affect presence through a personal crawl through installation',
-    href: '/studio/ouroboros'
+    thumbnail: '/media/gif/plate.gif',
+    description: 'An inquiry into the transduction of material resonance and the uncomfortable feedback loops found in our relationship with objects',
+    href: '/studio/the-feeding-plate'
   }
 ];
 
@@ -118,6 +120,7 @@ export default function Studio() {
                     aspectRatio: '1/1',
                     borderRadius: '50%',
                     backgroundColor: '#f5f5f5',
+                    opacity: 0.75,
                     marginBottom: '1.2rem',
                     overflow: 'hidden',
                     position: 'relative',

@@ -25,10 +25,10 @@ export default function Glossary() {
       <section className="hero-section">
         <div className="w-full">
           <h2 className="mb-6 font-bold">
-            Language is a foundational tool for becoming-with
+            Language is a foundational tool for becoming-with the network
           </h2>
             <p className="mt-8 body-large">
-              Let's make kin with Earth
+              Let's create kin together
             </p>
         </div>
       </section>
@@ -41,7 +41,7 @@ export default function Glossary() {
           <h2 
             className="mb-32"
           >
-            I. Entangled Consciousness
+            Entangling Consciousness
           </h2>
 
           {/* Sym-poiesis (Making-With) */}
@@ -135,7 +135,7 @@ export default function Glossary() {
           <h2 
             className="mb-32"
           >
-            II. Tentacular Relations
+            Tentacular Relations
           </h2>
 
           {/* Sensory Excavation */}
@@ -297,7 +297,7 @@ export default function Glossary() {
           <h2 
             className="mb-32"
           >
-            III. Symbiotic Awareness
+            Symbiotic Awareness
           </h2>
 
           {/* Signal-to-Noise Ratio */}
