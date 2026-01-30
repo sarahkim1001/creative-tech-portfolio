@@ -1,16 +1,30 @@
+'use client';
+
+import { useEffect } from 'react';
+
 export default function About() {
+  useEffect(() => {
+    const gradient = 'linear-gradient(180deg, #e8f2ff 0%, #a99db3 100%)';
+    document.documentElement.style.background = gradient;
+    document.body.style.background = gradient;
+    return () => {
+      document.documentElement.style.background = '';
+      document.body.style.background = '';
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section 
         className="hero-section"
         style={{ 
-          paddingTop: 'calc(var(--header-top-spacing) + 1rem)',
+          paddingTop: 'calc(var(--header-top-spacing) - 4rem)',
           paddingBottom: '8rem'
         }}
       >
         <div className="w-full">
-          <div className="w-full max-w-[300px] aspect-[3/4] mb-16">
+          <div className="w-full max-w-[300px] aspect-[3/4] mb-16" style={{ borderRadius: '50%', overflow: 'hidden' }}>
             <img 
               src="/media/img/pfp2.JPG" 
               alt="Sarah S. Kim"
@@ -36,7 +50,7 @@ export default function About() {
             style={{ 
               fontFamily: 'var(--font-sans)',
               fontWeight: 400,
-              fontSize: '1.25rem',
+              fontSize: '1.5rem',
               lineHeight: '1.75',
               opacity: 0.7
             }}
@@ -54,7 +68,7 @@ export default function About() {
               <h2 
                 className="mb-8 font-bold"
               >
-                Community
+               
               </h2>
               <p 
                 className="mb-6 body-large"
@@ -73,31 +87,31 @@ export default function About() {
               <h2 
                 className="mb-8 font-bold"
               >
-                Being
+                
               </h2>
               <div className="space-y-6">
                 <div>
                   <h3 className="mb-3 font-bold">
-                    Actively Curious
+                    
                   </h3>
                   <p className="body-large">
-                    In every project there is the opportunity to learn how people relate with art, the world, and each other. This shared curiosity is the foundation of her practice.
+                    I love learning about how people relate with art, the world, and each other. <br></br> Creative experimentation is a gift for healing and connecting.<br></br>This curiosity is the foundation of my practice.<br></br>
                   </p>
                 </div>
                 <div>
                   <h3 className="mb-3 font-bold">
-                    Grounded & Practical
+                    
                   </h3>
                   <p className="body-large">
-                    Sarah sees beauty in the technical; for her, aligning images, text, and colors, positioning a projector, or balancing sound signals is a very special kind of meditation.
+                   
                   </p>
                 </div>
                 <div>
                   <h3 className="mb-3 font-bold">
-                    Human
+                  
                   </h3>
                   <p className="body-large">
-                    Waking up with the world. 
+                    Say hello to your neighbors and hug trees every day.
                   </p>
                 </div>
               </div>
@@ -120,7 +134,7 @@ export default function About() {
                   style={{ 
                     fontFamily: 'var(--font-sans)',
               fontWeight: 400,
-                    fontSize: '1.75rem',
+                    fontSize: '2.1rem',
                     lineHeight: '1.6',
                     opacity: '0.7'
                   }}
@@ -142,7 +156,7 @@ export default function About() {
                   className="space-y-6"
                   style={{ 
                     fontFamily: 'monospace',
-                    fontSize: '1.125rem',
+                    fontSize: '1.35rem',
                     lineHeight: '1.6',
                     opacity: '0.6'
                   }}
@@ -152,7 +166,7 @@ export default function About() {
                       className="mb-2 tracking-widest"
                       style={{ 
                         fontFamily: 'var(--font-sans)',
-                        fontSize: '1.125rem',
+                        fontSize: '1.35rem',
                         fontWeight: 400,
                         color: 'var(--text-bold)',
                         opacity: '0.8'
@@ -167,7 +181,7 @@ export default function About() {
                       className="mb-2 tracking-widest"
                       style={{ 
                         fontFamily: 'var(--font-sans)',
-                        fontSize: '1.125rem',
+                        fontSize: '1.35rem',
                         fontWeight: 400,
                         color: 'var(--text-bold)',
                         opacity: '0.8'
@@ -196,7 +210,7 @@ export default function About() {
               style={{ 
                 fontFamily: 'var(--font-sans)',
               fontWeight: 400,
-                fontSize: '1.25rem',
+                fontSize: '1.5rem',
                 lineHeight: '1.75'
               }}
             >

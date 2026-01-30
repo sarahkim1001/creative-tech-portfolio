@@ -7,6 +7,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Sarah Kim - Creative Portfolio",
   description: "Sarah Kim's creative portfolio",
+  icons: {
+    icon: '/media/img/faviconlight.png',
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +28,13 @@ export default function RootLayout({
           <Navigation />
 
           {/* Main Content */}
-          <main className="flex-1" style={{ padding: '0 2rem', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
+          <main className="flex-1" style={{ 
+            padding: '0 clamp(1.6rem, 2.4rem, 2.4rem)', 
+            paddingTop: 'clamp(6.4rem, 0px, 0px)', /* Add top padding on mobile for fixed header */
+            maxWidth: '1680px', 
+            margin: '0 auto', 
+            width: '100%' 
+          }}>
             {children}
           </main>
 

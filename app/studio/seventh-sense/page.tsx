@@ -1,22 +1,34 @@
 'use client';
 
-export default function SeventhSense() {
+import { useEffect } from 'react';
+
+export default function Cyborgania() {
+  useEffect(() => {
+    const gradient = 'linear-gradient(180deg, #e8f2ff 0%, #a99db3 100%)';
+    document.documentElement.style.background = gradient;
+    document.body.style.background = gradient;
+    return () => {
+      document.documentElement.style.background = '';
+      document.body.style.background = '';
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Hero Image - Full Width with 1rem spacing */}
       <section className="w-full relative" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
         <a 
-          href="https://seventhsense.space"
+          href="https://cyborgania.org"
           target="_blank"
           rel="noopener noreferrer"
           className="group block relative cursor-pointer"
           style={{ marginLeft: 'calc(-15% - 4rem)', marginRight: 'calc(-15% - 4rem)', padding: '0 1rem', aspectRatio: '16/9', overflow: 'hidden' }}
         >
           <iframe
-            src="https://seventhsense.space"
+            src="https://cyborgania.org"
             className="w-full h-full pointer-events-none transition-opacity duration-300"
             style={{ border: 'none', width: '100%', height: '100%' }}
-            title="Seventh Sense Website"
+            title="Cyborgania Website"
           />
           <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none" />
         </a>
@@ -24,26 +36,27 @@ export default function SeventhSense() {
 
       {/* Header Section */}
       <section 
-        className="pb-12"
         style={{ 
-          paddingTop: 'var(--header-top-spacing)'
+          paddingTop: 'var(--header-top-spacing)',
+          paddingBottom: '14.4rem'
         }}
       >
         <div>
-            <h1 className="mb-4">
-              Seventh Sense
+            <h1 style={{ marginBottom: '4.8rem' }}>
+              Cyborgania
             </h1>
             <p 
-              className="body-small mb-4"
+              className="body-small"
               style={{ 
                 fontFamily: 'var(--font-sans)',
-                opacity: 0.7
+                opacity: 0.7,
+                marginBottom: '4.8rem'
               }}
             >
               2026
             </p>
             <a 
-              href="https://seventhsense.space"
+              href="https://cyborgania.org"
               target="_blank"
               rel="noopener noreferrer"
               className="body-small underline"
@@ -52,93 +65,68 @@ export default function SeventhSense() {
                 opacity: 0.7
               }}
             >
-              seventhsense.space
+              cyborgania.org
             </a>
         </div>
       </section>
 
       {/* Description & Content Section */}
-      <section className="pb-20">
-        <div className="w-full space-y-16">
-            {/* The Story */}
+      <section style={{ paddingBottom: '24rem' }}>
+        <div className="w-full" style={{ display: 'flex', flexDirection: 'column', gap: '38.4rem' }}>
+            {/* About Cyborgania */}
             <div>
-              <h2 className="mb-6 font-bold">
-                The Story
+              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
+                About Cyborgania
               </h2>
               <p className="body-large">
-                Seventh Sense is a journey into the hidden architecture of our daily lives. We often think of our digital world as something new, floating in a cloud, but it actually carries a deep, heavy inheritance. This project looks at our screens and feeds as a "seventh sense"—an artificial layer that has quietly grafted itself onto how we perceive the world and each other.
-              </p>
-              <p className="body-large mt-6">
-                By tracing the parallels between the "invisible pipes" of Silicon Valley and the industrial plumbing of the 19th century, the work finds that we are still living within a logic of containment and flow. It's an exploration of how we've been "piped" into certain behaviors and how much of our visceral, human reality gets drained away in the process.
+                Cyborgania is an artist-led design research laboratory exploring the ontological collapse between biological systems and digital architecture. We interrogate the screen not as a barrier, but as a porous, permeable membrane where the enmeshment of the machine and the organism occurs.
               </p>
             </div>
 
-            {/* The Creative Process */}
+            {/* Technical Framework */}
             <div>
-              <h2 className="mb-6 font-bold">
-                The Creative Process
+              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
+                Technical Framework
               </h2>
-              <p className="mb-6 body-large">
-                The development of Seventh Sense was an act of uncovering—a slow, tactile search for the "rust" and "stains" behind the perfect glass of our interfaces:
+              <p className="body-large">
+                Technically, the project functions as a "cyborganic" feedback loop. By ingesting real-world geospatial data—including solar positioning, anemometric shifts, and seismic tremors—the digital environment is algorithmically reconfigured in real-time. This creates a responsive "eco-scape" where code acts as a living tissue, fluctuating in direct somatic response to the earth's physical rhythms.
               </p>
-              <div className="space-y-8">
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    Infrastructural Inheritance
-                  </h3>
-                  <p className="body-large">
-                    This began with a curiosity about where our data actually goes. By tracing the lineage back to Victorian-era civil engineering, the work notices how the old ways of moving water and waste were repurposed to manage the movement of our thoughts and connections.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    The Logic of the Sieve
-                  </h3>
-                  <p className="body-large">
-                    A process of noticing the "cleanse." The project explores how platforms act as a mechanical mesh—catching the "sanitized" data points they can use, while letting the complex, messy textures of our actual lives slip through the cracks.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    Information Attrition
-                  </h3>
-                  <p className="body-large">
-                    A study of what is lost in translation. By observing how information decays as it's forced through rigid digital protocols, the work surfaces the "clogs" and "stains"—the parts of our story that the system tries to wash away but that ultimately define who we are.
-                  </p>
-                </div>
-              </div>
             </div>
 
-            {/* Found Patterns */}
+            {/* Critical Perspective */}
             <div>
-              <h2 className="mb-6 font-bold">
-                Found Patterns
+              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
+                Critical Perspective
               </h2>
-              <div className="space-y-8">
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    Systemic Calibration
-                  </h3>
-                  <p className="body-large">
-                    Noticing how our tools gently nudge us to be more "optimized," filtering out the quirks and non-standard rhythms that make us human.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    Atonic Environments
-                  </h3>
-                  <p className="body-large">
-                    Exploring the "smart" spaces that feel strangely still—homogenous, sedate places where the biological "noise" of life is smoothed over for a standardized domesticity.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    The Terminal Sink
-                  </h3>
-                  <p className="body-large">
-                    Locating the drain—the points where our shared history pools, flattens, and is eventually left behind.
-                  </p>
-                </div>
+              <p className="body-large">
+                From a critical perspective, Cyborgania seeks to dismantle the techno-industrial binary that positions the digital as an extraction from the natural. We advocate for a post-humanist design language that prioritizes "softness" and "oneness," utilizing storytelling and communal gatherings to foster a future where technology serves as a celebratory extension of the planet's inherent pulse.
+              </p>
+            </div>
+
+            {/* Design & Development: 6 Key Pillars */}
+            <div>
+              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
+                Design & Development: 6 Key Pillars
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '7.2rem' }}>
+                <p className="body-large">
+                  Generative (The Architecture)
+                </p>
+                <p className="body-large">
+                  Geospatial (The Mapping)
+                </p>
+                <p className="body-large">
+                  Atmospheric (The UX)
+                </p>
+                <p className="body-large">
+                  Brutalist (The Structure)
+                </p>
+                <p className="body-large">
+                  Algorithmic (The Motion)
+                </p>
+                <p className="body-large">
+                  Tactile (The Texture)
+                </p>
               </div>
             </div>
         </div>
@@ -153,7 +141,7 @@ export default function SeventhSense() {
                 <div className="w-full aspect-video bg-gray-200 border border-gray-400 overflow-hidden mb-4">
                   <img 
                     src="/media/img/seventh-sense-1.jpg" 
-                    alt="Seventh Sense Installation"
+                    alt="Cyborgania Installation"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;

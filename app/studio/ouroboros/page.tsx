@@ -1,10 +1,58 @@
 'use client';
 
+import { useEffect } from 'react';
+
 export default function Ouroboros() {
+  useEffect(() => {
+    const gradient = 'linear-gradient(180deg, #e8f2ff 0%, #a99db3 100%)';
+    document.documentElement.style.background = gradient;
+    document.body.style.background = gradient;
+    return () => {
+      document.documentElement.style.background = '';
+      document.body.style.background = '';
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
+      {/* Header Section */}
+      <section 
+        style={{ 
+          paddingTop: 'var(--header-top-spacing)',
+          paddingBottom: '14.4rem'
+        }}
+      >
+        <div>
+            <h1 style={{ marginBottom: '4.8rem' }}>
+              Ouroboros
+            </h1>
+            <p 
+              className="body-small"
+              style={{ 
+                fontFamily: 'var(--font-sans)',
+                opacity: 0.7,
+                marginBottom: '4.8rem'
+              }}
+            >
+              Senior Thesis | 2025
+            </p>
+        </div>
+      </section>
+
+      {/* Description & Content Section */}
+      <section style={{ paddingBottom: '24rem' }}>
+        <div className="w-full" style={{ display: 'flex', flexDirection: 'column', gap: '38.4rem' }}>
+            {/* Main Description */}
+            <div>
+              <p className="body-large">
+                Ouroboros is a study of how physical spaces affect our state of mind. Using a crawl-through tunnel as a physical threshold, the installation explores the human need to find a private moment of reflection within a busy, overstimulating environment. It acts as a deliberate pause—a physical descent into a quiet, enclosed space that filters out the distractions of the surrounding exhibition. Inside the tunnel, participants are prompted to feel exactly how much their built surroundings dictate their mood, their movement, and their capacity for focus.
+              </p>
+            </div>
+        </div>
+      </section>
+
       {/* Project Gallery */}
-      <section className="pb-40" style={{ paddingTop: 'calc(var(--header-top-spacing) - 1rem)' }}>
+      <section className="pb-40">
         <div>
             <div className="space-y-16">
               {/* Gallery Item 1 */}
@@ -97,42 +145,12 @@ export default function Ouroboros() {
         </div>
       </section>
 
-      {/* Header Section */}
-      <section 
-        className="pb-12"
-        style={{ 
-          paddingTop: 'var(--header-top-spacing)'
-        }}
-      >
-        <div>
-            <h1 className="mb-4">
-              Ouroboros
-            </h1>
-            <p 
-              className="body-small"
-              style={{ 
-                fontFamily: 'var(--font-sans)',
-                opacity: 0.7
-              }}
-            >
-              Senior Thesis | 2025
-            </p>
-        </div>
-      </section>
-
-      {/* Description & Content Section */}
+      {/* Description & Content Section - Continued */}
       <section className="pb-20">
-        <div className="w-full space-y-16">
-            {/* Main Description */}
-            <div>
-              <p className="body-large">
-                Ouroboros is a study of how physical spaces affect our state of mind. Using a crawl-through tunnel as a physical threshold, the installation explores the human need to find a private moment of reflection within a busy, overstimulating environment. It acts as a deliberate pause—a physical descent into a quiet, enclosed space that filters out the distractions of the surrounding exhibition. Inside the tunnel, participants are prompted to feel exactly how much their built surroundings dictate their mood, their movement, and their capacity for focus.
-              </p>
-            </div>
-
+        <div className="w-full space-y-32">
             {/* Conceptual Framework */}
             <div>
-              <h2 className="mb-6 font-bold">
+              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
                 Conceptual Framework
               </h2>
               <p className="body-large">
@@ -142,43 +160,20 @@ export default function Ouroboros() {
 
             {/* Sonic & Technical Audit */}
             <div>
-              <h2 className="mb-6 font-bold">
+              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
                 Sonic & Technical Audit
               </h2>
-              <div className="space-y-8">
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    Consciousness Modulation
-                  </h3>
-                  <p className="body-large">
-                    Using Pauline Oliveros' Deep Listening approach, the system captures everyday ambient urban sounds and uses phase shifting and indeterminacy to transform them into abstract textures. This shift in the acoustic environment helps move the participant from an external "observer" state into a more internal, reflective state of mind.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    Memory Triggers
-                  </h3>
-                  <p className="body-large">
-                    The audio landscape is layered with field recordings of domestic and industrial artifacts—such as a kitchen sink or an old computer hum. These sounds are triggered randomly, surfacing like sonic memories that remind the participant of the specific environments (such as the tech-centric domesticity of Silicon Valley) that have shaped their history and values.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="mb-3 font-bold">
-                    Physical Thresholds
-                  </h3>
-                  <p className="body-large">
-                    By forcing a radical change in scale and mobility, the tunnel makes the participant physically aware of their own biological presence. This design demonstrates that our relationship to the non-human world and our own identity is inextricably tied to the physical dimensions of the structures we build.
-                  </p>
-                </div>
-              </div>
+              <p className="body-large">
+                Using Pauline Oliveros' Deep Listening approach, the system captures everyday ambient urban sounds and uses phase shifting and indeterminacy to transform them into abstract textures.
+              </p>
             </div>
 
             {/* Project Details */}
             <div>
-              <h2 className="mb-6 font-bold">
+              <h2 className="font-bold" style={{ marginBottom: '12rem' }}>
                 Project Details
               </h2>
-              <div className="space-y-4 body-large">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '7.2rem' }} className="body-large">
                 <p>
                   <span className="font-bold">Role:</span> Lead Creator & Technologist
                 </p>
@@ -186,7 +181,7 @@ export default function Ouroboros() {
                   <span className="font-bold">Medium:</span> Interactive Somatic Installation
                 </p>
                 <p>
-                  <span className="font-bold">Technical Stack:</span> Max/MSP/Jitter, Spatial Audio, Projection Mapping, Custom Fabrication
+                  <span className="font-bold">Technical Stack:</span> Max/MSP/Jitter, Spatial Audio, Visual Projection Design, Projection Mapping, Custom Fabrication
                 </p>
                 <p>
                   <span className="font-bold">Context:</span> NYU Integrated Design & Media (2025)

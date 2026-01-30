@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 
 type Project = {
@@ -17,9 +17,9 @@ type Project = {
 const projects: Project[] = [
   {
     id: '1',
-    title: 'The Sink',
+    title: 'Not Hers',
     category: ['digital collage'],
-    thumbnail: '/media/img/cleansegirl.png',
+    thumbnail: '/media/img/she.png',
     description: 'Investigating the Culture of Cleanse as a pervasive ideological atmospheric inherited from colonial eugenics',
     href: '/studio/digital-collagescapes'
   },
@@ -33,7 +33,7 @@ const projects: Project[] = [
   },
   {
     id: '4',
-    title: 'Seventh Sense',
+    title: 'Cyborgania',
     category: ['experimental sound', 'projection visuals'],
     thumbnail: '/media/img/seventh-sense-landing.jpg',
     description: 'Investigates digital media as a contemporary sensory organ, auditing the interface layer that mediates our perception',
@@ -49,129 +49,113 @@ const projects: Project[] = [
   }
 ];
 
-const categories: Array<'digital collage' | 'experimental sound' | 'mixed media sculpture' | 'interactive media art' | 'projection visuals' | 'All'> = [
-  'All',
-  'digital collage',
-  'experimental sound',
-  'mixed media sculpture',
-  'interactive media art',
-  'projection visuals'
-];
-
 export default function Studio() {
-  const [activeFilter, setActiveFilter] = useState<'digital collage' | 'experimental sound' | 'mixed media sculpture' | 'interactive media art' | 'projection visuals' | 'All'>('All');
-
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(project => project.category.includes(activeFilter));
+  useEffect(() => {
+    const gradient = 'linear-gradient(180deg, #e8f2ff 0%, #a99db3 100%)';
+    document.documentElement.style.background = gradient;
+    document.body.style.background = gradient;
+    return () => {
+      document.documentElement.style.background = '';
+      document.body.style.background = '';
+    };
+  }, []);
 
 
   return (
-    <div style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
+    <div style={{ paddingTop: '4.8rem', paddingBottom: '4.8rem' }}>
       {/* Hero Section */}
-      <div style={{ marginBottom: '4rem', maxWidth: '1400px', marginLeft: 'auto', marginRight: 'auto' }}>
+      <div style={{ marginBottom: '4.8rem', maxWidth: '1680px', marginLeft: 'auto', marginRight: 'auto' }}>
         <h2 style={{ 
           fontFamily: 'var(--font-sans)',
-          fontSize: '2rem',
+          fontSize: '2.88rem',
           fontWeight: 400,
           color: 'var(--text-primary)',
-          marginBottom: '1rem',
+          marginBottom: '1.2rem',
           marginTop: 0
         }}>
-          Studio
+          
         </h2>
         <p style={{ 
           fontFamily: 'var(--font-sans)',
-          fontSize: '1rem',
+          fontSize: '1.44rem',
           fontWeight: 400,
           color: 'var(--text-primary)',
           margin: 0
         }}>
-          Creating-with: a collaborative process involving people, technology, and shared systems.
+          
         </p>
       </div>
 
-      {/* Filter System */}
-      <div style={{ marginBottom: '3rem', maxWidth: '1400px', marginLeft: 'auto', marginRight: 'auto' }}>
-        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveFilter(category as typeof activeFilter)}
-              style={{ 
-                fontFamily: 'var(--font-sans)',
-                fontSize: '1rem',
-                color: activeFilter === category ? 'var(--text-primary)' : 'var(--text-secondary)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: 0
-              }}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Projects Grid */}
-      <div style={{ maxWidth: '1400px', marginLeft: 'auto', marginRight: 'auto' }}>
+      <div style={{ maxWidth: '1680px', marginLeft: 'auto', marginRight: 'auto' }}>
         <div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gap: '2.4rem'
           }}
         >
-              {filteredProjects.map((project) => (
+              {projects.map((project, index) => {
+                // Create irregular timing for each card - slower durations
+                const durations = [10, 11, 12, 10.5];
+                const delays = [0, 1.5, 2.5, 0.8];
+                return (
                 <Link
                   key={project.id}
                   href={project.href!}
-                  style={{ textDecoration: 'none', color: 'inherit' }}
+                  className="floating-card"
+                  style={{ 
+                    textDecoration: 'none', 
+                    color: 'inherit',
+                    animationDelay: `${delays[index]}s`,
+                    animationDuration: `${durations[index]}s`,
+                    display: 'block'
+                  }}
                 >
                   {/* Thumbnail */}
-                  <div style={{ 
+                  <div className="project-card-container" style={{ 
                     width: '100%',
                     aspectRatio: '1/1',
+                    borderRadius: '50%',
                     backgroundColor: '#f5f5f5',
-                    marginBottom: '1rem',
-                    overflow: 'hidden'
+                    marginBottom: '1.2rem',
+                    overflow: 'hidden',
+                    position: 'relative',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                   }}>
-                    {project.thumbnail && project.thumbnail !== '/placeholder.jpg' ? (
+                    {project.title === 'Cyborgania' ? (
+                      <iframe
+                        src="https://cyborgania.org"
+                        className="project-image-hover"
+                        style={{ width: '100%', height: '100%', border: 'none', pointerEvents: 'none', position: 'absolute', top: 0, left: 0 }}
+                        title="Cyborgania Website Preview"
+                      />
+                    ) : project.thumbnail && project.thumbnail !== '/placeholder.jpg' ? (
                       <img 
                         src={project.thumbnail} 
                         alt={project.title}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        className="project-image-hover"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
                       />
                     ) : null}
-                  </div>
-
-                  {/* Project Info */}
-                  <div>
-                    <h3 style={{
-                      fontFamily: 'var(--font-sans)',
-                      fontSize: '1.5rem',
-                      fontWeight: 400,
-                      color: 'var(--text-primary)',
-                      margin: '0 0 0.5rem 0'
-                    }}>
-                      {project.title}
-                    </h3>
-                    {project.description && (
-                      <p style={{ 
-                        fontFamily: 'var(--font-sans)',
-                        fontWeight: 400,
-                        fontSize: '0.875rem',
-                        lineHeight: '1.5',
-                        color: 'var(--text-primary)',
-                        margin: 0
-                      }}>
-                        {project.description}
-                      </p>
-                    )}
+                    {/* Dark overlay - shows on hover */}
+                    <div className="project-dark-overlay" style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: 'rgba(0, 0, 0, 0)',
+                      transition: 'background-color 0.3s ease',
+                      pointerEvents: 'none',
+                      zIndex: 5
+                    }} />
                   </div>
                 </Link>
-              ))}
+                );
+              })}
         </div>
       </div>
     </div>

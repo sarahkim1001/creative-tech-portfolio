@@ -39,35 +39,59 @@ export default function MobileMenu() {
 
   return (
     <>
-      {/* Menu Button - Top Right (Mobile Only) */}
+      {/* Mobile Header - Always Visible */}
       {!isOpen && (
-        <button
-          onClick={toggleMenu}
-          className="md:hidden fixed top-6 right-[calc(15%+4rem)] z-50"
-          style={{ 
-            fontFamily: 'var(--font-sans)',
-            fontSize: '1.25rem'
-          }}
-          aria-label="Toggle menu"
-        >
-          menu
-        </button>
+        <div className="md:hidden fixed top-0 left-0 right-0 flex justify-between items-center" style={{
+          padding: '1.6rem',
+          zIndex: 1000,
+          background: 'var(--bg)'
+        }}>
+          <Link 
+            href="/"
+            style={{ 
+              fontFamily: 'var(--font-sans)',
+              fontSize: '1.8rem',
+              fontWeight: 400,
+              color: 'var(--text-header)',
+              textDecoration: 'none'
+            }}
+          >
+            Sarah S. Kim
+          </Link>
+          <button
+            onClick={toggleMenu}
+            style={{ 
+              fontFamily: 'var(--font-sans)',
+              fontSize: '1.8rem',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              color: 'var(--text-primary)'
+            }}
+            aria-label="Toggle menu"
+          >
+            menu
+          </button>
+        </div>
       )}
 
       {/* Full Page Menu Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 bg-white z-40 md:hidden">
+        <div className="fixed inset-0 md:hidden" style={{ zIndex: 1001, background: 'var(--bg)' }}>
           <div className="flex flex-col h-full">
             {/* Header */}
-            <div className="flex justify-between items-start px-[calc(15%+4rem)] pt-6">
+            <div className="flex justify-between items-start" style={{ 
+              padding: '1.6rem'
+            }}>
               <Link 
                 href="/"
                 onClick={closeMenu}
-                className="font-bold transition-colors duration-200 hover:opacity-80"
                 style={{ 
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '1.25rem',
-                  color: 'var(--text-header)'
+                  fontSize: '1.8rem',
+                  fontWeight: 400,
+                  color: 'var(--text-header)',
+                  textDecoration: 'none'
                 }}
               >
                 Sarah S. Kim
@@ -76,7 +100,11 @@ export default function MobileMenu() {
                 onClick={closeMenu}
                 style={{ 
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '1.25rem'
+                  fontSize: '1.8rem',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: 'var(--text-primary)'
                 }}
                 aria-label="Close menu"
               >
@@ -85,7 +113,7 @@ export default function MobileMenu() {
             </div>
 
             {/* Navigation Links - Centered */}
-            <div className="flex-1 flex flex-col justify-center items-center gap-8">
+            <div className="flex-1 flex flex-col justify-center items-center" style={{ gap: '4.8rem' }}>
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -98,8 +126,9 @@ export default function MobileMenu() {
                     }`}
                     style={{ 
                       fontFamily: 'var(--font-sans)',
-                      fontSize: '1.875rem',
-                      color: isActive ? 'var(--text-header)' : 'var(--text-primary)'
+                      fontSize: '2.7rem',
+                      color: isActive ? 'var(--text-header)' : 'var(--text-primary)',
+                      textDecoration: 'none'
                     }}
                   >
                     {link.label}

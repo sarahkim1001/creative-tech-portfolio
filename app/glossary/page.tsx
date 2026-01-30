@@ -1,4 +1,18 @@
+'use client';
+
+import { useEffect } from 'react';
+
 export default function Glossary() {
+  useEffect(() => {
+    const gradient = 'linear-gradient(180deg, #e8f2ff 0%, #a99db3 100%)';
+    document.documentElement.style.background = gradient;
+    document.body.style.background = gradient;
+    return () => {
+      document.documentElement.style.background = '';
+      document.body.style.background = '';
+    };
+  }, []);
+
   return (
     <div 
       className="min-h-screen"
@@ -11,10 +25,10 @@ export default function Glossary() {
       <section className="hero-section">
         <div className="w-full">
           <h2 className="mb-6 font-bold">
-            Words for Sym-poetic Coexistence
+            Language is a foundational tool for becoming-with
           </h2>
             <p className="mt-8 body-large">
-              Sharing vocabulary for intentional, communal becoming-with within physical and digital infrastructures and between the human and non-human.
+              Let's make kin with Earth
             </p>
         </div>
       </section>

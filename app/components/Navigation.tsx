@@ -13,14 +13,15 @@ export default function Navigation() {
   ];
 
   return (
-    <nav style={{ 
-      display: 'flex',
+    <nav className="hidden md:flex" style={{ 
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '2rem',
-      maxWidth: '1400px',
+      padding: '2.4rem',
+      maxWidth: '1680px',
       margin: '0 auto',
-      width: '100%'
+      width: '100%',
+      position: 'relative',
+      zIndex: 1000
     }}>
       <Link 
         href="/" 
@@ -28,7 +29,7 @@ export default function Navigation() {
           fontFamily: 'var(--font-sans)', 
           fontWeight: 400, 
           color: 'var(--text-primary)',
-          fontSize: '1.25rem',
+          fontSize: '1.8rem',
           textDecoration: 'none'
         }}
       >
@@ -36,9 +37,9 @@ export default function Navigation() {
       </Link>
       <div style={{ 
         display: 'flex',
-        gap: '2rem',
+        gap: '2.4rem',
         fontFamily: 'var(--font-sans)',
-        fontSize: '1rem'
+        fontSize: '1.44rem'
       }}>
         {navLinks.map((link) => (
           <Link
