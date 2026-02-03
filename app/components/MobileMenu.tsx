@@ -42,7 +42,7 @@ export default function MobileMenu() {
       {/* Mobile Header - Always Visible */}
       {!isOpen && (
         <div className="md:hidden fixed top-0 left-0 right-0 flex justify-between items-center" style={{
-          padding: '1.6rem',
+          padding: '1.6rem clamp(3.2rem, 6rem, 8rem)',
           zIndex: 1000,
           background: 'var(--bg)'
         }}>
@@ -50,8 +50,8 @@ export default function MobileMenu() {
             href="/"
             style={{ 
               fontFamily: 'var(--font-sans)',
-              fontSize: '1.8rem',
-              fontWeight: 400,
+              fontSize: '1.56rem',
+              fontWeight: 500,
               color: 'var(--text-header)',
               textDecoration: 'none'
             }}
@@ -62,7 +62,7 @@ export default function MobileMenu() {
             onClick={toggleMenu}
             style={{ 
               fontFamily: 'var(--font-sans)',
-              fontSize: '1.8rem',
+              fontSize: '1.56rem',
               background: 'none',
               border: 'none',
               cursor: 'pointer',
@@ -81,15 +81,15 @@ export default function MobileMenu() {
           <div className="flex flex-col h-full">
             {/* Header */}
             <div className="flex justify-between items-start" style={{ 
-              padding: '1.6rem'
+              padding: '1.6rem clamp(3.2rem, 6rem, 8rem)'
             }}>
               <Link 
                 href="/"
                 onClick={closeMenu}
                 style={{ 
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '1.8rem',
-                  fontWeight: 400,
+                  fontSize: '1.56rem',
+                  fontWeight: 500,
                   color: 'var(--text-header)',
                   textDecoration: 'none'
                 }}
@@ -100,7 +100,7 @@ export default function MobileMenu() {
                 onClick={closeMenu}
                 style={{ 
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '1.8rem',
+                  fontSize: '1.56rem',
                   background: 'none',
                   border: 'none',
                   cursor: 'pointer',
@@ -126,7 +126,7 @@ export default function MobileMenu() {
                     }`}
                     style={{ 
                       fontFamily: 'var(--font-sans)',
-                      fontSize: '2.7rem',
+                      fontSize: '2.34rem',
                       color: isActive ? 'var(--text-header)' : 'var(--text-primary)',
                       textDecoration: 'none'
                     }}

@@ -75,7 +75,7 @@ export default function Ouroboros() {
                   className="body-small italic"
                   style={{ 
                     fontFamily: 'var(--font-sans)',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     opacity: 0.7
                   }}
                 >
@@ -104,7 +104,7 @@ export default function Ouroboros() {
                   className="body-small italic"
                   style={{ 
                     fontFamily: 'var(--font-sans)',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     opacity: 0.7
                   }}
                 >
@@ -133,7 +133,7 @@ export default function Ouroboros() {
                   className="body-small italic"
                   style={{ 
                     fontFamily: 'var(--font-sans)',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     opacity: 0.7
                   }}
                 >
@@ -148,7 +148,7 @@ export default function Ouroboros() {
         <div className="w-full" style={{ display: 'flex', flexDirection: 'column', gap: '38.4rem' }}>
             {/* Conceptual Framework */}
             <div>
-              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+              <h2 style={{ marginBottom: '12rem', fontWeight: 500 }}>
                
               </h2>
               <p className="body-large">
@@ -158,7 +158,7 @@ export default function Ouroboros() {
 
             {/* Sonic & Technical Audit */}
             <div>
-              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+              <h2 style={{ marginBottom: '12rem', fontWeight: 500 }}>
                 
               </h2>
               <p className="body-large">

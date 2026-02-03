@@ -29,9 +29,9 @@ export default function RootLayout({
 
           {/* Main Content */}
           <main className="flex-1" style={{ 
-            padding: '0 clamp(1.6rem, 2.4rem, 2.4rem)', 
+            padding: '0 clamp(3.2rem, 6rem, 8rem)', 
             paddingTop: 'clamp(6.4rem, 0px, 0px)', /* Add top padding on mobile for fixed header */
-            maxWidth: '1680px', 
+            maxWidth: 'calc(960px + 8rem)', 
             margin: '0 auto', 
             width: '100%' 
           }}>

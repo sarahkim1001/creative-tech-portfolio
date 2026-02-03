@@ -158,7 +158,7 @@ export default function Cyborgania() {
                   className="body-small italic"
                   style={{ 
                     fontFamily: 'var(--font-sans)',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     opacity: 0.7
                   }}
                 >

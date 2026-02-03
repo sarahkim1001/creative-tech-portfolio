@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,8 +18,8 @@ export default function Home() {
   const pointsRef = useRef<THREE.Points | null>(null);
   const originalPositionsRef = useRef<Float32Array | null>(null);
   const dispersedPositionsRef = useRef<Float32Array | null>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const [showButton, setShowButton] = useState(false);
+  const pageRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const gradient = 'linear-gradient(180deg, #e8f2ff 0%, #a99db3 100%)';
@@ -45,17 +45,17 @@ export default function Home() {
     // Camera setup
     const camera = new THREE.PerspectiveCamera(75, containerWidth / containerHeight, 0.1, 1000);
     camera.position.z = 5;
-    camera.position.y = 0.5; // Move camera up slightly to shift sphere center up
+    camera.position.y = 0.05; // Move camera up to position sphere higher on page
     cameraRef.current = camera;
 
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({ 
-      antialias: true,
+      antialias: false, // Disable antialiasing for better performance
       alpha: true,
       powerPreference: 'high-performance'
     });
     renderer.setSize(containerWidth, containerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Lower pixel ratio for better performance
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
@@ -159,7 +159,6 @@ export default function Home() {
           uniform float uTime;
           uniform float uOpacity;
           uniform float uDispersion;
-          uniform float uDesaturation;
           varying vec3 vPosition;
           varying vec3 vNormal;
           varying float vNoise;
@@ -169,29 +168,46 @@ export default function Home() {
             float distance = length(gl_PointCoord - vec2(0.5));
             float alpha = 1.0 - smoothstep(0.0, 0.5, distance);
             
-            // Color based on noise and position - increased lightness variability
-            vec3 color = vec3(0.4, 0.4, 0.4); // Gray base color
+            // Cool tone color palette - green, grey, blue, purple tones
+            vec3 color1 = vec3(0.25, 0.35, 0.4);   // Deep blue-grey (dark)
+            vec3 color2 = vec3(0.4, 0.5, 0.55);    // Mid grey-blue (medium-dark)
+            vec3 color3 = vec3(0.5, 0.65, 0.6);     // Mid blue-green-grey (medium)
+            vec3 color4 = vec3(0.65, 0.7, 0.75);   // Light grey-blue (light)
             
-            // Increased variation for more lightness variability
-            float noiseVariation = vNoise * 0.4; // Increased from 0.1-0.12 to 0.4
-            vec3 variation = vec3(
-              noiseVariation + sin(vPosition.x * 2.0 + uTime * 0.2) * 0.15,
-              noiseVariation + sin(vPosition.y * 2.0 + uTime * 0.16) * 0.15,
-              noiseVariation + sin(vPosition.z * 2.0 + uTime * 0.24) * 0.15
-            );
+            // Use noise and position to create smooth gradient through cool tones
+            float noiseValue = vNoise;
             
-            // Increased lighting variation
-            vec3 lighting = vNormal * 0.2; // Increased from 0.05 to 0.2
+            // Add subtle position-based variation for organic feel
+            float positionFactor = length(vPosition) * 0.3 + sin(vPosition.y * 1.5 + uTime * 0.1) * 0.15;
+            float blendFactor = noiseValue * 0.7 + positionFactor * 0.3;
+            blendFactor = clamp(blendFactor, 0.0, 1.0);
             
-            // Add position-based brightness variation
-            float positionBrightness = sin(length(vPosition) * 3.0 + uTime * 0.1) * 0.25;
+            // Smooth blending through all four cool tones
+            vec3 color;
+            if (blendFactor < 0.33) {
+              // Blend between color1 (dark blue-grey) and color2 (mid grey-blue)
+              float t = blendFactor / 0.33;
+              color = mix(color1, color2, smoothstep(0.0, 1.0, t));
+            } else if (blendFactor < 0.66) {
+              // Blend between color2 (mid grey-blue) and color3 (blue-green-grey)
+              float t = (blendFactor - 0.33) / 0.33;
+              color = mix(color2, color3, smoothstep(0.0, 1.0, t));
+            } else {
+              // Blend between color3 (blue-green-grey) and color4 (light grey-blue)
+              float t = (blendFactor - 0.66) / 0.34;
+              color = mix(color3, color4, smoothstep(0.0, 1.0, t));
+            }
             
-            // Combine all variations
-            vec3 finalColor = color + variation + lighting + vec3(positionBrightness);
+            // Add subtle lighting variation based on normal
+            vec3 lighting = vNormal * 0.1;
+            color += lighting;
             
-            // Mix with grayscale to desaturate - animated from muted to colorful
-            float gray = dot(finalColor, vec3(0.299, 0.587, 0.114)); // Luminance
-            color = mix(finalColor, vec3(gray), uDesaturation); // Use uniform for animated desaturation
+            // Subtle time-based shimmer (very minimal)
+            float shimmer = sin(length(vPosition) * 2.0 + uTime * 0.15) * 0.05;
+            color += vec3(shimmer);
+            
+            // Clamp color values
+            color = clamp(color, 0.0, 1.0);
             
             // Fade opacity during dispersion
             float dispersionOpacity = uOpacity * (1.0 - uDispersion * 0.6);
@@ -201,8 +217,8 @@ export default function Home() {
           }
         `;
 
-    // Create Icosahedron geometry
-    const geometry = new THREE.IcosahedronGeometry(1.2, 4); // Smaller radius for more compact sphere
+    // Create Icosahedron geometry - reduced detail for better performance
+    const geometry = new THREE.IcosahedronGeometry(1.2, 3); // Reduced subdivisions from 4 to 3 for better performance
     
     // Convert to Points geometry
     const pointsGeometry = new THREE.BufferGeometry();
@@ -249,9 +265,8 @@ export default function Home() {
       uniforms: {
         uTime: { value: 0 },
         uBreath: { value: 0 },
-        uOpacity: { value: 0 }, // Start at 0 for fade-in
-        uDispersion: { value: 0 },
-        uDesaturation: { value: 0.9 } // Start with high desaturation (muted/white tones)
+        uOpacity: { value: 0.15 }, // Start at full opacity, no fade-in
+        uDispersion: { value: 0 }
       },
       transparent: true,
       blending: THREE.NormalBlending,
@@ -262,21 +277,6 @@ export default function Home() {
     const points = new THREE.Points(pointsGeometry, material);
     group.add(points);
     pointsRef.current = points;
-
-    // Fade in the sphere on load - slower animation
-    gsap.to(material.uniforms.uOpacity, {
-      value: 0.15,
-      duration: 4,
-      ease: 'power2.in'
-    });
-
-    // Animate color from muted/white tones to more colorful
-    gsap.to(material.uniforms.uDesaturation, {
-      value: 0.5, // End at current colorful state
-      duration: 6,
-      ease: 'power2.out',
-      delay: 1 // Start after fade-in begins
-    });
 
         // Mouse interaction - use container coordinates
         const handleMouseMove = (e: MouseEvent) => {
@@ -300,7 +300,7 @@ export default function Home() {
     window.addEventListener('mousemove', handleMouseMove);
     container.addEventListener('mouseleave', handleMouseLeave);
 
-    // Click handler for spore dispersion
+    // Click handler for spore dispersion and navigation
     let isAnimating = false;
     const handleClick = () => {
       if (isAnimating) return; // Prevent multiple clicks during animation
@@ -311,57 +311,27 @@ export default function Home() {
       const tl = gsap.timeline({
         onComplete: () => {
           isAnimating = false;
-          // Keep particles dispersed and invisible - don't reset
         }
       });
       
-      // Dispersion - particles flow away
+      // Dispersion - particles flow away (faster)
       tl.to(material.uniforms.uDispersion, {
         value: 1,
-        duration: 8,
+        duration: 1, // Reduced from 2 to 1 second
         ease: 'power2.out'
       });
       
       // Fade out completely after dispersion
       tl.to(material.uniforms.uOpacity, {
         value: 0,
-        duration: 1,
+        duration: 0.25, // Reduced from 0.5 to 0.25 seconds
         ease: 'power2.out'
       }, '>');
       
-      // Show button and fade it in after particles fade
-      // Set showButton immediately so React renders it
-      setShowButton(true);
-      
-      // Add button fade-in to timeline with delay - faster fade in
+      // Navigate to studio page after particles fade
       tl.call(() => {
-        // Use requestAnimationFrame to ensure DOM is updated
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            if (buttonRef.current) {
-              // Set initial opacity explicitly
-              buttonRef.current.style.opacity = '0';
-              gsap.to(buttonRef.current, { 
-                opacity: 1, 
-                duration: 0.8,
-                ease: 'power2.in'
-              });
-            } else {
-              // Retry after a short delay
-              setTimeout(() => {
-                if (buttonRef.current) {
-                  buttonRef.current.style.opacity = '0';
-                  gsap.to(buttonRef.current, { 
-                    opacity: 1, 
-                    duration: 0.8,
-                    ease: 'power2.in'
-                  });
-                }
-              }, 100);
-            }
-          });
-        });
-      }, [], '>+=0.2'); // Start 0.2s after fade out completes (faster)
+        router.push('/studio');
+      });
     };
 
     container.addEventListener('click', handleClick);
@@ -425,16 +395,19 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: '100vh',
-      width: '100%',
-      cursor: 'grab',
-      position: 'relative'
-    }}>
+    <div 
+      ref={pageRef}
+          style={{ 
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        width: '100%',
+        cursor: 'grab',
+        position: 'relative'
+      }}
+    >
       <div 
         ref={containerRef}
           style={{ 
@@ -444,49 +417,6 @@ export default function Home() {
           zIndex: 0
         }}
       />
-      {showButton && (
-        <div
-          ref={buttonRef}
-          style={{ 
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            opacity: 0,
-            zIndex: 10000,
-            cursor: 'pointer',
-            pointerEvents: 'auto',
-            width: 'auto',
-            height: 'auto'
-          }}
-        >
-        <Link 
-            href="/studio"
-          style={{ 
-            fontFamily: 'var(--font-sans)',
-              fontSize: '2.16rem',
-              fontWeight: 400,
-              color: 'var(--text-primary)',
-              textDecoration: 'none',
-              padding: '1.2rem 2.4rem',
-              border: '1px solid var(--text-primary)',
-              borderRadius: '4px',
-              transition: 'opacity 0.3s ease',
-              display: 'block',
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              backdropFilter: 'blur(10px)'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.opacity = '0.7';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = '1';
-            }}
-          >
-            the studio
-        </Link>
-      </div>
-      )}
     </div>
   );
 }

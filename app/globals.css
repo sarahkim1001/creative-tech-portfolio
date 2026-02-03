@@ -44,11 +44,11 @@
 /* Standardized Variables */
 :root {
   --bg: #ebf0f5;
-  --text-header: #666666; /* Light gray for headers (H1, H2) */
-  --text-subheader: #666666; /* Light gray for subheaders (H3, H4) */
-  --text-primary: #666666; /* Light gray for body paragraph text */
-  --text-secondary: #666666; /* Light gray for secondary/muted text */
-  --text-bold: #666666; /* Light gray for bold text */
+  --text-header: #1a1a1a; /* Dark charcoal for headers (H1, H2) */
+  --text-subheader: #1a1a1a; /* Dark charcoal for subheaders (H3, H4) */
+  --text-primary: #1a1a1a; /* Dark charcoal for body paragraph text */
+  --text-secondary: #1a1a1a; /* Dark charcoal for secondary/muted text */
+  --text-bold: #1a1a1a; /* Dark charcoal for bold text */
   --font-sans: 'PP Neue Montreal', system-ui, sans-serif;
   --header-top-spacing: 14.4rem; /* 48 * 0.25rem * 1.2 = 14.4rem = 230.4px */
   --section-bottom-spacing: 12rem; /* 40 * 0.25rem * 1.2 = 12rem = 192px */
@@ -56,8 +56,8 @@
   
   /* Mobile-specific variables */
   --mobile-padding: 1.6rem; /* Standard mobile padding */
-  --mobile-nav-font-size: 1.8rem; /* Mobile navigation font size */
-  --mobile-nav-link-size: 2.7rem; /* Mobile nav link font size */
+  --mobile-nav-font-size: 1.56rem; /* Mobile navigation font size */
+  --mobile-nav-link-size: 2.34rem; /* Mobile nav link font size */
   --mobile-header-spacing: 9.6rem; /* Mobile header top spacing */
 }
 
@@ -95,13 +95,13 @@ body {
   background: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 1.62rem;
+  font-size: 1.4rem;
   line-height: 1.6;
 }
 
 @media (max-width: 767px) {
   body {
-    font-size: 1.35rem; /* Slightly smaller on mobile */
+    font-size: 1.17rem; /* Slightly smaller on mobile */
   }
 }
 
@@ -112,8 +112,8 @@ body {
 /* H1: Page Titles */
 h1 {
   font-family: 'PP Neue Montreal';
-  font-size: 12.6rem;
-  font-weight: 400;
+  font-size: 10.9rem;
+  font-weight: 500;
   line-height: 1.1;
   color: var(--text-primary);
   text-align: left;
@@ -121,60 +121,60 @@ h1 {
 
 @media (max-width: 767px) {
   h1 {
-    font-size: 6rem; /* Smaller on mobile */
+    font-size: 5.2rem; /* Smaller on mobile */
   }
 }
 
 /* H2: Major Section Headers */
 h2 {
   font-family: 'PP Neue Montreal';
-  font-size: 7.2rem;
-  font-weight: 400;
+  font-size: 6.2rem;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--text-primary);
 }
 
 @media (max-width: 767px) {
   h2 {
-    font-size: 4rem; /* Smaller on mobile */
+    font-size: 3.5rem; /* Smaller on mobile */
   }
 }
 
 /* H3: Subsection Headers */
 h3 {
   font-family: 'PP Neue Montreal';
-  font-size: 5.4rem;
-  font-weight: 400;
+  font-size: 4.7rem;
+  font-weight: 500;
   line-height: 1.3;
   color: var(--text-primary);
 }
 
 @media (max-width: 767px) {
   h3 {
-    font-size: 2.5rem; /* Smaller on mobile */
+    font-size: 2.2rem; /* Smaller on mobile */
   }
 }
 
 /* H4: Minor Headers */
 h4 {
   font-family: 'PP Neue Montreal';
-  font-size: 4.5rem;
-  font-weight: 400;
+  font-size: 3.9rem;
+  font-weight: 500;
   line-height: 1.4;
   color: var(--text-primary);
 }
 
 @media (max-width: 767px) {
   h4 {
-    font-size: 2rem; /* Smaller on mobile */
+    font-size: 1.75rem; /* Smaller on mobile */
   }
 }
 
 /* H5, H6: Small Headers */
 h5, h6 {
   font-family: 'PP Neue Montreal';
-  font-size: 3.6rem;
-  font-weight: 400;
+  font-size: 3.1rem;
+  font-weight: 500;
   line-height: 1.4;
   color: var(--text-primary);
 }
@@ -182,42 +182,42 @@ h5, h6 {
 /* Bold class uses solid style */
 .font-bold {
   font-family: 'PP Neue Montreal';
-  font-weight: 400;
+  font-weight: 500;
   color: var(--text-primary);
 }
 
 /* Paragraph Typography */
 p {
   font-family: var(--font-sans);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--text-primary);
 }
 
 /* Body Large: Main narrative paragraphs */
 .body-large {
   font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 2.52rem;
+  font-weight: 500;
+  font-size: 2.18rem;
   line-height: 1.75;
 }
 
 @media (max-width: 767px) {
   .body-large {
-    font-size: 1.62rem; /* Smaller on mobile */
+    font-size: 1.4rem; /* Smaller on mobile */
   }
 }
 
 
 /* Body Small: Secondary text */
 .body-small {
-  font-size: 1.8rem;
+  font-size: 1.56rem;
   line-height: 1.6;
 }
 
 /* Small: Labels and metadata */
 .small {
   font-family: 'PP Neue Montreal';
-  font-size: 1.62rem;
+  font-size: 1.4rem;
   line-height: 1.5;
   color: var(--text-secondary);
 }
@@ -226,14 +226,14 @@ p {
 h2.no-outline {
   color: var(--text-header);
   -webkit-text-stroke: none;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h3.no-outline,
 h4.no-outline {
   color: var(--text-subheader);
   -webkit-text-stroke: none;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /* Hero Section - Centered intro sections */
@@ -272,11 +272,6 @@ body, p {
   color: var(--text-primary) !important;
 }
 
-/* Override for gray-white text on home page hero image */
-.home-hero-text p {
-  color: #f5f5f5 !important;
-}
-
 /* Ensure all text elements use black (white for text over images is set explicitly) */
 p, span, div, li {
   color: var(--text-primary) !important;
@@ -311,12 +306,6 @@ button:active {
   color: var(--text-header);
   opacity: 0.8;
 }
-
-/* Override Tailwind text utilities */
-.text-black {
-  color: var(--text-primary) !important;
-}
-
 
 /* Ensure all text elements are left-aligned */
 h1, h2, h3, h4, h5, h6, p, div, span, a, li {
@@ -365,6 +354,7 @@ h1, h2, h3, h4, h5, h6, p, div, span, a, li {
 /* All headings, links, and non-paragraph text use Neue Montreal */
 h1, h2, h3, h4, h5, h6, a, button, span, div, li, label, input, textarea, select {
   font-family: var(--font-sans);
+  font-weight: 500;
 }
 
 
@@ -391,79 +381,6 @@ h1, h2, h3, h4, h5, h6, a, button, span, div, li, label, input, textarea, select
   line-height: 1 !important;
 }
 
-/* Flickering Pixel Animation - Very subtle flicker */
-@keyframes flicker {
-  0% {
-    opacity: 1;
-  }
-  1% {
-    opacity: 0.98;
-  }
-  2% {
-    opacity: 1;
-  }
-  5% {
-    opacity: 0.99;
-  }
-  6% {
-    opacity: 1;
-  }
-  12% {
-    opacity: 0.98;
-  }
-  13% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0.99;
-  }
-  26% {
-    opacity: 1;
-  }
-  40% {
-    opacity: 0.98;
-  }
-  41% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 0.99;
-  }
-  61% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0.98;
-  }
-  81% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.flickering-pixel {
-  animation: flicker 4s steps(1, end) infinite;
-}
-
-.flickering-pixel > div {
-  animation: flicker 4s steps(1, end) infinite;
-}
-
-.hover-expand:hover {
-  transform: rotateY(-15deg) rotateX(5deg) scale(10);
-}
-
-@keyframes fadeInText {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.8;
-  }
-}
-
 /* Project card hover effect */
 
 .floating-card:hover .project-image-hover,
@@ -479,10 +396,6 @@ h1, h2, h3, h4, h5, h6, a, button, span, div, li, label, input, textarea, select
 
 .project-image-hover {
   transition: filter 0.3s ease;
-}
-
-.project-title-hover {
-  transition: opacity 0.3s ease !important;
 }
 
 /* Floating animation for project cards */
@@ -506,4 +419,16 @@ h1, h2, h3, h4, h5, h6, a, button, span, div, li, label, input, textarea, select
   will-change: transform;
 }
 
+/* Pulse animation for gradient selfie bubble on hover */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
 
+.floating-card:hover .project-card-container {
+  animation: pulse 2s ease-in-out infinite;
+}

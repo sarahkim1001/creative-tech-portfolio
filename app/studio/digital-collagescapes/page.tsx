@@ -64,7 +64,7 @@ export default function DigitalCollagescapes() {
         <div className="w-full" style={{ display: 'flex', flexDirection: 'column', gap: '38.4rem' }}>
             {/* Project Overview */}
             <div>
-              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+              <h2 style={{ marginBottom: '12rem', fontWeight: 500 }}>
                 Project Overview
               </h2>
               <p className="body-large">
@@ -74,7 +74,7 @@ export default function DigitalCollagescapes() {
 
             {/* Methodology: Information Layering */}
             <div>
-              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+              <h2 style={{ marginBottom: '12rem', fontWeight: 500 }}>
                 Methodology: Information Layering
               </h2>
               <p className="body-large">
@@ -84,7 +84,7 @@ export default function DigitalCollagescapes() {
 
             {/* Structural Themes */}
             <div>
-              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+              <h2 style={{ marginBottom: '12rem', fontWeight: 500 }}>
                 Structural Themes
               </h2>
               <p className="body-large">
@@ -112,7 +112,7 @@ export default function DigitalCollagescapes() {
                   className="body-small italic"
                   style={{ 
                     fontFamily: 'var(--font-sans)',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     opacity: 0.7
                   }}
                 >
@@ -134,7 +134,7 @@ export default function DigitalCollagescapes() {
                   className="body-small italic"
                   style={{ 
                     fontFamily: 'var(--font-sans)',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     opacity: 0.7
                   }}
                 >
@@ -156,7 +156,7 @@ export default function DigitalCollagescapes() {
                   className="body-small italic"
                   style={{ 
                     fontFamily: 'var(--font-sans)',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     opacity: 0.7
                   }}
                 >

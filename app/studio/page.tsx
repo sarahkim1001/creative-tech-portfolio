@@ -66,11 +66,11 @@ export default function Studio() {
   return (
     <div style={{ paddingTop: '4.8rem', paddingBottom: '4.8rem' }}>
       {/* Hero Section */}
-      <div style={{ marginBottom: '4.8rem', maxWidth: '1680px', marginLeft: 'auto', marginRight: 'auto' }}>
+      <div style={{ marginBottom: '4.8rem', maxWidth: 'calc(960px + 8rem)', marginLeft: 'auto', marginRight: 'auto' }}>
         <h2 style={{ 
           fontFamily: 'var(--font-sans)',
-          fontSize: '2.88rem',
-          fontWeight: 400,
+          fontSize: '2.5rem',
+          fontWeight: 500,
           color: 'var(--text-primary)',
           marginBottom: '1.2rem',
           marginTop: 0
@@ -79,8 +79,8 @@ export default function Studio() {
         </h2>
         <p style={{ 
           fontFamily: 'var(--font-sans)',
-          fontSize: '1.44rem',
-          fontWeight: 400,
+          fontSize: '1.25rem',
+          fontWeight: 500,
           color: 'var(--text-primary)',
           margin: 0
         }}>
@@ -89,7 +89,7 @@ export default function Studio() {
       </div>
 
       {/* Projects Grid */}
-      <div style={{ maxWidth: '1680px', marginLeft: 'auto', marginRight: 'auto' }}>
+      <div style={{ maxWidth: 'calc(960px + 8rem)', marginLeft: 'auto', marginRight: 'auto' }}>
         <div 
           style={{
             display: 'grid',
@@ -99,18 +99,25 @@ export default function Studio() {
         >
               {projects.map((project, index) => {
                 // Create irregular timing for each card - slower durations
-                const durations = [10, 11, 12, 10.5];
-                const delays = [0, 1.5, 2.5, 0.8];
+                const durations = [10, 11, 12];
+                const delays = [0, 1.5, 2.5];
+                // Ensure we don't go out of bounds
+                const duration = durations[index] ?? durations[0];
+                const delay = delays[index] ?? delays[0];
+                
+                // Skip if no href
+                if (!project.href) return null;
+                
                 return (
                 <Link
                   key={project.id}
-                  href={project.href!}
+                  href={project.href}
                   className="floating-card"
                   style={{ 
                     textDecoration: 'none', 
                     color: 'inherit',
-                    animationDelay: `${delays[index]}s`,
-                    animationDuration: `${durations[index]}s`,
+                    animationDelay: `${delay}s`,
+                    animationDuration: `${duration}s`,
                     display: 'block'
                   }}
                 >
@@ -120,7 +127,7 @@ export default function Studio() {
                     aspectRatio: '1/1',
                     borderRadius: '50%',
                     backgroundColor: '#f5f5f5',
-                    opacity: 0.75,
+                    opacity: 0.9,
                     marginBottom: '1.2rem',
                     overflow: 'hidden',
                     position: 'relative',

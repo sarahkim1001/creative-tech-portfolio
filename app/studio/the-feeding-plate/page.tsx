@@ -60,7 +60,7 @@ export default function TheFeedingPlate() {
 
       {/* Description & Content Section */}
       <section style={{ paddingBottom: '24rem' }}>
-      <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+      <h2 style={{ marginBottom: '12rem', fontWeight: 500 }}>
                 
               </h2>
               
@@ -74,7 +74,7 @@ export default function TheFeedingPlate() {
 
             {/* The Technical Audit */}
             <div>
-              <h2 style={{ marginBottom: '12rem', fontWeight: 400 }}>
+              <h2 style={{ marginBottom: '12rem', fontWeight: 500 }}>
                
               </h2>
               <p className="body-large">

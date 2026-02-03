@@ -25,7 +25,7 @@ export default function Glossary() {
       <section className="hero-section">
         <div className="w-full">
           <h2 className="mb-6 font-bold">
-            Language is a foundational tool for becoming-with the network
+            Language is a foundational tool for becoming-with
           </h2>
             <p className="mt-8 body-large">
               Let's create kin together
@@ -54,7 +54,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The core tenet of the Chthulucene; the recognition that nothing makes itself. It replaces the illusion of individual creation (auto-poiesis) with a collective process where humans, algorithms, and biological systems co-produce reality.
@@ -71,7 +71,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The recursive, co-constitutive evolution of human biological cognition and technical exteriorization. It posits that the human subject is not a fixed entity but is perpetually becoming-with its tools, resulting in a state where the boundary between organic memory and digital architecture is fundamentally porous.
@@ -88,7 +88,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               A temporal disjunction where the "ghosts" of aborted futures and obsolete technical infrastructures persist within the present. In design, it functions as an aesthetic and psychological audit of the haunted sensorium, acknowledging the weight of the futures we were promised but never inhabited.
@@ -105,7 +105,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The study of digital interfaces as sensory prosthetics that reconfigure the neural and social architectures of the participant. It examines how the phenomenology of the interface dictates the epistemological boundaries of what can be known, remembered, or collectively imagined.
@@ -122,7 +122,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The collapse of geographical distance through network topologies. It is the psychic and spatial reality where global logistics and personal domesticity occupy the same immediate temporal moment, creating a state of perpetual atmospheric entanglement.
@@ -148,7 +148,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               An archaeological method applied to material culture to uncover the hidden histories of production. It involves stripping back the industrial biography of an object to reveal the latent labor, ecological trauma, and ancestral textures embedded within its physical form.
@@ -165,7 +165,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The utilization of digital signal processing (DSP) to "interrogate" the invisible data latent within an environment. It treats the site as a space of relational presence, using sound to translate empirical data into mystic resonance and lived experience.
@@ -182,7 +182,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The ontological shift between the tangible and the virtual. It investigates the migration of "material weight" as an object is digitized, examining how the essence of a physical artifact survives its re-manifestation as interactive media.
@@ -199,7 +199,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               A design intervention aimed at repairing the social fragmentation induced by extractive platforms. It utilizes myth and storytelling to transform "users" into "kin," employing code as a symbolic loom to restore collective intimacy and ancestral belonging.
@@ -216,7 +216,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               Situates research in the industrial biography of upbringing in the Silicon Valley tech industry, examining the home as the primary site of technological colonization.
@@ -233,7 +233,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               Anchors practice in the tension between large-scale global infrastructures and the intimate, personal environments of the user.
@@ -250,7 +250,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               Refers to the spacetime continuity of the Information Age, where the past is perpetually re-manifested through interactive media and digital archives.
@@ -267,7 +267,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               Frames research as a contemporary archaeological practice, uncovering the labor and material histories embedded in modern landscapes.
@@ -284,7 +284,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               Anchors work at the threshold where "dead" technology (e-waste) and "living" memory (childhood artifacts) coexist in a single chronological layer.
@@ -310,7 +310,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               A semiotic pursuit of clarity within the entropy of the Information Age. It represents a meditative refusal of digital exhaustion, prioritizing the "Signal" of symbiotic connection over the "Noise" of algorithmic surplus.
@@ -327,7 +327,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The non-linear, reciprocal loop between human volition and machine autonomy. It moves toward a "Digital Animism," where software is treated as a co-habitant with its own teleology, requiring collaborative rather than purely instrumental engagement.
@@ -344,7 +344,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               A technical philosophy of "Atomic Resilience" where digital entities are built from modular, ethical units. It mirrors ecological systems by asserting that the integrity of a communal infrastructure depends on the ethical alignment of its smallest parts.
@@ -361,7 +361,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               A strategy for Ecological-Digital Harmony that rejects the narrative of the virtual as "weightless." It acknowledges the physical footprint of servers, treating the digital artifact as a transient guest within a living ecosystem that eventually requires a return to the earth.
@@ -378,7 +378,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               A socio-technical phenomenon where the "frictionless" nature of digital media mirrors a historical obsession with social and biological purity. It is the aesthetic and ideological enforcement of a "clean" interface as a stand-in for moral or civilizational superiority.
@@ -395,7 +395,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The design manifestation of the "cleanse". It is a state where the digital architecture removes all barriers to consumption, creating a sterile flow that mimics a sanitized, colonized environment.
@@ -412,7 +412,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The cultural consequence of being forced into these "clean" predictive systems. It describes the psychological tension felt when a biological, messy identity is flattened into a sterile, digital data-shadow.
@@ -429,7 +429,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The lived reality of the "cleanse". It is the state where the physical body is ignored in favor of a sterilized digital presence, reflecting a cultural desire to transcend the "dirt" of human biological existence.
@@ -446,7 +446,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               The ways in which "frictionless" design choices make moral decisions on behalf of the participant, often reinforcing existing structural hierarchies.
@@ -463,7 +463,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               How platforms "cleanse" and filter human experience, prioritizing specific "optimized" behaviors while marginalizing the messy, organic, or "unproductive" parts of life.
@@ -480,7 +480,7 @@ export default function Glossary() {
             <p 
               className="body-large"
               style={{ 
-                maxWidth: '60rem'
+                maxWidth: '70rem'
               }}
             >
               Replacing "social networks" with a framework that acknowledges the heavy, industrial, and often extractive relations required to sustain digital "closeness."

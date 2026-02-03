@@ -36,22 +36,22 @@ export default function About() {
         }}>
           <a href="mailto:sarahkim1001@gmail.com" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="5" width="18" height="14" rx="2" stroke="#666666" strokeWidth="2" fill="none"/>
-              <path d="M3 7l9 6 9-6" stroke="#666666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              <rect x="3" y="5" width="18" height="14" rx="2" stroke="#1a1a1a" strokeWidth="2" fill="none"/>
+              <path d="M3 7l9 6 9-6" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
             </svg>
           </a>
           <a href="https://www.linkedin.com/in/sarah-s-kim-03047020a/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="#666666" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-              <rect x="2" y="9" width="4" height="12" fill="#666666"/>
-              <circle cx="4" cy="4" r="2" fill="#666666"/>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#1a1a1a" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12" fill="#1a1a1a"/>
+                <circle cx="4" cy="4" r="2" fill="#1a1a1a"/>
             </svg>
           </a>
           <a href="https://instagram.com/s4rahkim" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#666666" strokeWidth="2" fill="none"/>
-              <circle cx="12" cy="12" r="4" fill="#666666"/>
-              <circle cx="17.5" cy="6.5" r="1.5" fill="#666666"/>
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#1a1a1a" strokeWidth="2" fill="none"/>
+              <circle cx="12" cy="12" r="4" fill="#1a1a1a"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="#1a1a1a"/>
             </svg>
           </a>
         </div>
@@ -82,8 +82,8 @@ export default function About() {
             className="mt-4"
             style={{ 
               fontFamily: 'var(--font-sans)',
-              fontWeight: 400,
-              fontSize: '1.5rem',
+              fontWeight: 500,
+              fontSize: '1.3rem',
               lineHeight: '1.75',
               opacity: 0.7
             }}
@@ -154,8 +154,8 @@ export default function About() {
                 <div 
                   style={{ 
                     fontFamily: 'var(--font-sans)',
-              fontWeight: 400,
-                    fontSize: '2.1rem',
+              fontWeight: 500,
+                    fontSize: '1.82rem',
                     lineHeight: '1.6',
                     opacity: '0.7'
                   }}
@@ -175,17 +175,17 @@ export default function About() {
                   <div 
                     style={{ 
                       fontFamily: 'var(--font-sans)',
-                      fontWeight: 400,
-                      fontSize: '2.1rem',
+                      fontWeight: 500,
+                      fontSize: '1.82rem',
                       lineHeight: '1.6',
                       opacity: '0.7'
                     }}
                   >
                 
                     <p style={{ marginTop: '1.6rem' }}>Qualia Contemporary Art, Palo Alto, CA</p>
-                    <p style={{ marginLeft: '1.6rem', fontSize: '1.8rem' }}>Gallery Intern (Jan 2026 - current)</p>
+                    <p style={{ marginLeft: '1.6rem', fontSize: '1.56rem' }}>Gallery Intern (Jan 2026 - current)</p>
                     <p>Harvestworks, New York, NY</p>
-                    <p style={{ marginLeft: '1.6rem', fontSize: '1.8rem' }}>Production Assistant (April - June 2025)</p>
+                    <p style={{ marginLeft: '1.6rem', fontSize: '1.56rem' }}>Production Assistant (April - June 2025)</p>
                   </div>
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function About() {
                   className="space-y-6"
                   style={{ 
                     fontFamily: 'monospace',
-                    fontSize: '1.35rem',
+                    fontSize: '1.17rem',
                     lineHeight: '1.6',
                     opacity: '0.6'
                   }}
@@ -211,8 +211,8 @@ export default function About() {
                       className="mb-2 tracking-widest"
                       style={{ 
                         fontFamily: 'var(--font-sans)',
-                        fontSize: '1.35rem',
-                        fontWeight: 400,
+                        fontSize: '1.17rem',
+                        fontWeight: 500,
                         color: 'var(--text-bold)',
                         opacity: '0.8'
                       }}
@@ -226,8 +226,8 @@ export default function About() {
                       className="mb-2 tracking-widest"
                       style={{ 
                         fontFamily: 'var(--font-sans)',
-                        fontSize: '1.35rem',
-                        fontWeight: 400,
+                        fontSize: '1.17rem',
+                        fontWeight: 500,
                         color: 'var(--text-bold)',
                         opacity: '0.8'
                       }}
