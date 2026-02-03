@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 type Project = {
@@ -52,6 +52,8 @@ const projects: Project[] = [
 ];
 
 export default function Studio() {
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+
   useEffect(() => {
     const gradient = 'linear-gradient(180deg, #e8f2ff 0%, #a99db3 100%)';
     document.documentElement.style.background = gradient;
@@ -64,7 +66,7 @@ export default function Studio() {
 
 
   return (
-    <div style={{ paddingTop: '4.8rem', paddingBottom: '4.8rem' }}>
+    <div className="studio-page" style={{ paddingTop: '4.8rem', paddingBottom: '4.8rem' }}>
       {/* Hero Section */}
       <div style={{ marginBottom: '4.8rem', maxWidth: 'calc(960px + 8rem)', marginLeft: 'auto', marginRight: 'auto' }}>
         <h2 style={{ 
@@ -91,10 +93,12 @@ export default function Studio() {
       {/* Projects Grid */}
       <div style={{ maxWidth: 'calc(960px + 8rem)', marginLeft: 'auto', marginRight: 'auto' }}>
         <div 
+          className="projects-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-            gap: '2.4rem'
+            gap: '2.4rem',
+            justifyContent: 'center'
           }}
         >
               {projects.map((project, index) => {
@@ -108,11 +112,13 @@ export default function Studio() {
                 // Skip if no href
                 if (!project.href) return null;
                 
+                const isActive = activeCard === project.id;
+                
                 return (
                 <Link
                   key={project.id}
                   href={project.href}
-                  className="floating-card"
+                  className={`floating-card ${isActive ? 'card-active' : ''}`}
                   style={{ 
                     textDecoration: 'none', 
                     color: 'inherit',
@@ -120,6 +126,10 @@ export default function Studio() {
                     animationDuration: `${duration}s`,
                     display: 'block'
                   }}
+                  onTouchStart={() => setActiveCard(project.id)}
+                  onTouchEnd={() => setTimeout(() => setActiveCard(null), 300)}
+                  onMouseEnter={() => setActiveCard(project.id)}
+                  onMouseLeave={() => setActiveCard(null)}
                 >
                   {/* Thumbnail */}
                   <div className="project-card-container" style={{ 
@@ -133,12 +143,15 @@ export default function Studio() {
                     position: 'relative',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    maxWidth: '100%'
                   }}>
                     {project.title === 'Cyborgania' ? (
                       <iframe
                         src="https://cyborgania.org"
-                        className="project-image-hover"
+                        className={`project-image-hover ${isActive ? 'image-active' : ''}`}
                         style={{ width: '100%', height: '100%', border: 'none', pointerEvents: 'none', position: 'absolute', top: 0, left: 0 }}
                         title="Cyborgania Website Preview"
                       />
@@ -146,18 +159,18 @@ export default function Studio() {
                       <img 
                         src={project.thumbnail} 
                         alt={project.title}
-                        className="project-image-hover"
+                        className={`project-image-hover ${isActive ? 'image-active' : ''}`}
                         style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
                       />
                     ) : null}
-                    {/* Dark overlay - shows on hover */}
-                    <div className="project-dark-overlay" style={{
+                    {/* Dark overlay - shows on hover/touch */}
+                    <div className={`project-dark-overlay ${isActive ? 'overlay-active' : ''}`} style={{
                       position: 'absolute',
                       top: 0,
                       left: 0,
                       width: '100%',
                       height: '100%',
-                      backgroundColor: 'rgba(0, 0, 0, 0)',
+                      backgroundColor: isActive ? 'rgba(0, 0, 0, 0.6)' : 'rgba(0, 0, 0, 0)',
                       transition: 'background-color 0.3s ease',
                       pointerEvents: 'none',
                       zIndex: 5
